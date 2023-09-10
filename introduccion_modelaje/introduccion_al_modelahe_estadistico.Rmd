@@ -18,7 +18,7 @@ knitr::include_graphics(path = "nuevo_proyecto.png")
 ```
 
 
-Se generará un apartado para nuestro nuevo proyecto. Por el momento nos enfocaremos solo en 'New directory'. Posteriormente seleccionaremos 'nuevo proyecto' y en apartado de 'tipo de proyecto'
+Se generará un apartado para nuestro nuevo proyecto. Por el momento nos enfocaremos solo en 'New directory'. En el apartado de 'tipo de proyecto' seleccionaremos 'nuevo proyecto'.
 
 ```{r imagen2, echo=FALSE, out.width="60%", fig.align='center'}
 knitr::include_graphics('tipo de proyecto.png')
