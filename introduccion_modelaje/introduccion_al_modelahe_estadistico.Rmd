@@ -13,12 +13,17 @@ knitr::opts_chunk$set(echo = TRUE)
 
 Antes de comenzar, vamos a generar un proyecto. Estos nos permiten organizar nuestro trabajo; tener imágenes, scripts, y datasets en un mismo sitio. Para esto, nos dirigiremos al apartado file, o archivo y seleccionaremos 'nuevo proyecto'
 
-```{r imagen1, echo=FALSE, out.width = "70%", fig.align = "center"}
+```{r imagen1, echo=FALSE, out.width = "60%", fig.align = "center"}
 knitr::include_graphics(path = "nuevo_proyecto.png")
 ```
 
 
-Se generará un apartado para nuestro nuevo proyecto. Por el momento nos enfocaremos solo en 'New directory'
+Se generará un apartado para nuestro nuevo proyecto. Por el momento nos enfocaremos solo en 'New directory'. Posteriormente seleccionaremos 'nuevo proyecto' y en apartado de 'tipo de proyecto'
+
+```{r imagen2, echo=FALSE, out.width="60%", fig.align='center'}
+knitr::include_graphics('tipo de proyecto.png')
+```
+
 
 
 
