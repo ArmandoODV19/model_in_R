@@ -61,6 +61,26 @@ write.csv(iris_df, 'data/iris.csv', row.names = FALSE)
 iris_df2 <- read_csv('data/iris.csv')
 ```
 
+Antes de comenzar veremos brevemente los tipos de variables de trabajo más comúnes 
+
+```{r variables, echo=TRUE}
+# variables con un solo elemento
+x <- 2 # tipo numérico
+y <- 'A' # tipo caracter
+# los vectores los cuales son un tipo de representación en una sola dimensión
+z <- c(1,2,3,4,5) # Tipo numérico
+a <- c('a', 'b', 'c') # tipo caracter
+# los dataframes, representaciones de datos en dos dimenciones
+b <- data.frame(nombre = c('juan', 'pedro', 'dulcinea'),
+           edad = c(12,15,13),
+           sexo = c('hombre', 'hombre', 'mujer'))
+# listas, elemntos que pueden contener cualquier tipo de variables
+c <- list(x,y,z,a,b)
+
+
+```
+
+
 **con esta introducción al manejo de proyectos podemos comenzar con la clase**
 
 ## Estadística descriptiva e inferencial
