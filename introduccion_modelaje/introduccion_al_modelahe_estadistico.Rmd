@@ -185,6 +185,10 @@ print(mfv(f, na_rm = TRUE))
 
 ### Medidas de dispersión
 
+```{r varianza, echo=TRUE}
+print(var(iris$Sepal.Length))
+print(var(iris$Sepal.Width))
+```
 
 
 
