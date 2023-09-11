@@ -24,9 +24,42 @@ Se generará un apartado para nuestro nuevo proyecto. Por el momento nos enfocar
 knitr::include_graphics('tipo de proyecto.png')
 ```
 
+Ahora, indicaremos la ubicación donde se guardará el proyecto
+
+```{r imagen3, echo=FALSE, out.width='60%', fig.align='center'}
+knitr::include_graphics('guardando_proyecto.png')
+```
+
+A continuación, se reiniciará la sesión de R, destacando que nuestro apartado de folder ahora estará colocado en sitio donde se generó el proyecto.
 
 
+```{r imagen4, echo=FALSE, out.width='60%', fig.align='center'}
+knitr::include_graphics('sesion.png')
+```
 
+De esta manera, todo lo que creemos puede ser guardado en una misma sesión. Asimismo, podemos cargar archivos sin la necesidad de buscar su ubicación completa en el sistema. En el siguiente ejemplo se generará una carpeta llamada data, posteriormente crearemos un data set llamado iris_df con la información de un conjunto de datos de prueba llamdo iris y lo guardaremos en esta carpeta. Por último, llamaremos de nuevo este conjunto de datos.
+
+```{r carpeta, echo=FALSE}
+# para este apartado trabajaremos con la libreria readr de tidyverse
+# en caso de no estar instalada usaremos el siguiente comando
+# install.packages('readr')
+# ahora, llamaremos la libreria
+# library(readr)
+
+# creando carpeta data
+dir.create('data')
+
+# generando un dataset con la informacion de irir
+iris_df <- iris
+
+# guardando el dataset
+write.csv(iris_df, 'data/iris.csv', row.names = FALSE)
+
+# de esta manera se carga el conjunto de datos en la carpeta.
+
+# Para cargar lod datos utilizaremos la funcion read_csv() de readr
+iris_df2 <- read_csv('data/iris.csv')
+```
 
 
 
