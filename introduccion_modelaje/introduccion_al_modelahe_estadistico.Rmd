@@ -39,12 +39,12 @@ knitr::include_graphics('sesion.png')
 
 De esta manera, todo lo que creemos puede ser guardado en una misma sesión. Asimismo, podemos cargar archivos sin la necesidad de buscar su ubicación completa en el sistema. En el siguiente ejemplo se generará una carpeta llamada data, posteriormente crearemos un data set llamado iris_df con la información de un conjunto de datos de prueba llamdo iris y lo guardaremos en esta carpeta. Por último, llamaremos de nuevo este conjunto de datos.
 
-```{r carpeta, echo=FALSE}
+```{r carpeta, echo=TRUE, warning=FALSE, message=FALSE}
 # para este apartado trabajaremos con la libreria readr de tidyverse
 # en caso de no estar instalada usaremos el siguiente comando
 # install.packages('readr')
 # ahora, llamaremos la libreria
-# library(readr)
+ library(readr)
 
 # creando carpeta data
 dir.create('data')
@@ -61,5 +61,6 @@ write.csv(iris_df, 'data/iris.csv', row.names = FALSE)
 iris_df2 <- read_csv('data/iris.csv')
 ```
 
+**con esta introducción al manejo de proyectos podemos comenzar con la clase**
 
-
+## Estadística descriptiva e inferencial
