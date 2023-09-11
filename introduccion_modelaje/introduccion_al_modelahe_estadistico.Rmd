@@ -238,6 +238,9 @@ summary(iris$Sepal.Length)
 ```
 
 
-
 ### Otras medidas
+
+```{r min, echo=TRUE}
+print(min(iris$Sepal.Length))
+```
 
