@@ -213,5 +213,9 @@ print(quantile(iris$Sepal.Length, probs = c(0, 0.1, 0.2, 0.3, 0.4, 0.5,
 print(quantile(iris$Sepal.Length, probs = 0.77))
 ```
 
+```{r percentiles2, echo=TRUE}
+print(quantile(iris$Sepal.Length, probs = c(0.33, 0.66)))
+```
+
 ### Otras medidas
 
