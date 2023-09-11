@@ -93,3 +93,19 @@ La estadística descriptiva suele ser el primer acercamiento analítico para ent
 Por su parte, la estadística inferencial se encarga de generar predicciones desde la información presente en el conjunto de datos. Por ejemplo, definir las ventas del próximo mes a partir de las ventas del año pasado. Detallar la probabilidad de que ocurra un evento, dado la ocurrencia de otro. Entre estos podemos mencionar a los modelos lineales, series de tiempo, cadenas de Markov, solo por definir algunos ejemplos.
 
 
+### Medidas de tendencia central
+
+
+
+
+### Medidas de dispersión
+
+
+
+
+### Cuantiles(Cuartiles, deciles, percentiles)
+
+
+
+### Otras medidas
+
