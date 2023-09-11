@@ -191,8 +191,17 @@ print(var(iris$Sepal.Width))
 ```
 
 
+```{r desviacion, echo=TRUE}
+print(sd(iris$Sepal.Length))
+print(sd(iris$Sepal.Width))
+```
+
 
 ### Cuantiles(Cuartiles, deciles, percentiles)
+
+```{r cuartil, echo=TRUE}
+
+```
 
 
 
