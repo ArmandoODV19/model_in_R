@@ -227,6 +227,10 @@ library(dplyr)
 glimpse(iris)
 ```
 
+```{r summary, echo=TRUE}
+summary(iris)
+```
+
 
 
 ### Otras medidas
