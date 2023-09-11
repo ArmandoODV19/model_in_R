@@ -200,10 +200,18 @@ print(sd(iris$Sepal.Width))
 ### Cuantiles(Cuartiles, deciles, percentiles)
 
 ```{r cuartil, echo=TRUE}
-
+print(quantile(iris$Sepal.Length))
+print(quantile(iris$Sepal.Width))
 ```
 
+```{r deciles, echo=TRUE}
+print(quantile(iris$Sepal.Length, probs = c(0, 0.1, 0.2, 0.3, 0.4, 0.5,
+                                            0.6, 0.7, 0.8, 0.9, 1)))
+```
 
+```{r percentiles, echo=TRUE}
+print(quantile(iris$Sepal.Length, probs = 0.77))
+```
 
 ### Otras medidas
 
