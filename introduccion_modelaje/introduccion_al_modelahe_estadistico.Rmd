@@ -81,11 +81,15 @@ c <- list(x,y,z,a,b)
 ```
 
 
-**con esta introducción al manejo de proyectos podemos comenzar con la clase**
+con esta introducción al manejo de proyectos podemos comenzar con la clase
+
+**Nota: una de las principales ventajas del lenguaje de programación R es el uso de vectores. La mayoría de los casos se limitarán a trabajar con ellos**
 
 ## Estadística descriptiva e inferencial
 
-La estadística descriptiva suele ser el primer acercamiento analítico para entender el comportamiento de los datos. Visto de otra manera, se considera como un resumen de las variables más comunes de los datos. Entre ellas se destaca el valor máximo, mínimo, rango, media aritmética, mediana, moda, varianza, desviación estándar. Por mencionar algunos.
+La estadística descriptiva suele ser el primer acercamiento analítico para entender el comportamiento de los datos. Visto de otra manera, se considera como un resumen de las variables más comunes de los datos. Asimismo, en esta categoría encontramos dos grupos, las medidas de tendencia central (media, moda, mediana) y las medidas de disperción (varianza, desviación típica). Además, se destacan otras medidas como el valor máximo, mínimo, y rango. Por mencionar algunos.
 
 
-Por su parte, la estadística inferencial se encarga de generar predicciones a partir de los datos 
+Por su parte, la estadística inferencial se encarga de generar predicciones desde la información presente en el conjunto de datos. Por ejemplo, definir las ventas del próximo mes a partir de las ventas del año pasado. Detallar la probabilidad de que ocurra un evento, dado la ocurrencia de otro. Entre estos podemos mencionar a los modelos lineales, series de tiempo, cadenas de Markov, solo por definir algunos ejemplos.
+
+
