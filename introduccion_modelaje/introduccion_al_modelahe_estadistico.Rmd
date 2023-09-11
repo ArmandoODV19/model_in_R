@@ -106,7 +106,38 @@ print(mean(iris$Petal.Length))
 print(mean(iris$Petal.Width))
 ```
 
+Todos los caminos conducen a Roma. Ahora vamos a calcular el promedio acorde a la fórmula. Tal vez no sea la manera más rápida, pero ten en cuenta que cuando programes no existirá una sola respuesta correcta.
 
+```{r promedio2, echo=TRUE}
+# primero vamos a sumar todos los valores de sepal length
+
+suma <- sum(iris$Sepal.Length)
+
+# ahora obtendremos el total de valores presentes en esta columna
+
+valores <- length(iris$Sepal.Length)
+
+# Por último, realizaremos la función descrita para la media aritmética
+
+promedio <- suma/valores
+print(promedio)
+
+# si comparamos ambas funciones obtendremos el mismo resultado
+
+print(promedio)
+print(mean(iris$Sepal.Length))
+```
+
+**Nota: en ambos casos trabajamos solo con vectores, dejando de lado el resto de la información y sus dimensiones**
+
+En ocasiones encontraremos conjuntos de datos con información faltante. Si utilizamos la función *mean()* de forma directa encontraremos un error
+
+```{r error_mean, echo=TRUE}
+d <- c(1, 3, 4, 2, 2, 1, 4, 5, NA, 6, 5, 4, 4)
+mean(d)
+```
+
+Para ello podemos utilizar el argumento na.rm = TRUE, para eliminar el/los valores faltantes. Podemos acceder a los argumentos de las funciones mediante la función *help()*.
 
 
 ### Medidas de dispersión
