@@ -242,5 +242,11 @@ summary(iris$Sepal.Length)
 
 ```{r min, echo=TRUE}
 print(min(iris$Sepal.Length))
+print(min(iris$Sepal.Width))
+```
+
+```{r max, echo=TRUE}
+print(max(iris$Sepal.Length))
+print(max(iris$Sepal.Width))
 ```
 
