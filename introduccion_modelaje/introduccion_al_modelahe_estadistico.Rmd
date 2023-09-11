@@ -231,6 +231,12 @@ glimpse(iris)
 summary(iris)
 ```
 
+Podemos utilizar la función *summary()* de manera global o seleccionar una variable en específico
+
+```{r summary2, echo=TRUE}
+summary(iris$Sepal.Length)
+```
+
 
 
 ### Otras medidas
