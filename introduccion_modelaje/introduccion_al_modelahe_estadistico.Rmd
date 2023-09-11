@@ -139,6 +139,30 @@ mean(d)
 
 Para ello podemos utilizar el argumento na.rm = TRUE, para eliminar el/los valores faltantes. Podemos acceder a los argumentos de las funciones mediante la función *help()*.
 
+```{r error_mean2, echo=TRUE}
+d <- c(1, 3, 4, 2, 2, 1, 4, 5, NA, 6, 5, 4, 4)
+mean(d, na.rm = TRUE)
+```
+**Nota: uno de los problemas de la media es su poca sensibilidad a valores extremos**
+
+
+La mediana es el valor que se encuentra en medio al ordenar un conjunto de datos. Este orden puede ser de manera ascendente o descendente. Cuando los datos tienden a la normalidad su valor es similar a la media aritmética. No obstante, cuando encotramos valores extremos, la mediana no sueleverse comprometida. Para obtener la mediana de un conjunto de datos se utiliza la función *median()*. A continuación realizaremos algunos ejemplos utilizando el set de datos iris.
+
+```{r mediana, echo=TRUE}
+print(median(iris$Sepal.Length))
+print(median(iris$Sepal.Width))
+print(median(iris$Petal.Length))
+print(median(iris$Petal.Width))
+
+```
+
+Asimismo, si existen datos faltantes, es posible utilizar el argumento na.rm= TRUE
+
+```{r MEDIAN_2, echo=TRUE}
+d <- c(1, 3, 4, 2, 2, 1, 4, 5, NA, 6, 5, 4, 4)
+median(d, na.rm = TRUE)
+```
+
 
 ### Medidas de dispersión
 
