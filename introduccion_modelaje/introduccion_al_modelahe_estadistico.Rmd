@@ -95,6 +95,17 @@ Por su parte, la estadística inferencial se encarga de generar predicciones des
 
 ### Medidas de tendencia central
 
+Comenzaremos con las medidas de tendencia central. Media aritmética, mediana, moda
+
+La media aritmética es el promedio de un conjunto de valores. Para calcularla se suman todos los valores y se divide sobre el total de elementos. En R, se puede calcular mediante la función mean(). A continuación, calcularemos el promedio de los valores de *Sepal.Length*, *Sepal.Width*,  *Petal.Length*, y *Petal.Width* del conjunto de datos iris.
+
+```{r promedio, echo=TRUE}
+print(mean(iris$Sepal.Length))
+print(mean(iris$Sepal.Width))
+print(mean(iris$Petal.Length))
+print(mean(iris$Petal.Width))
+```
+
 
 
 
