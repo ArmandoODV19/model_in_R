@@ -250,3 +250,18 @@ print(max(iris$Sepal.Length))
 print(max(iris$Sepal.Width))
 ```
 
+```{r rango, echo=TRUE}
+print(range(iris$Sepal.Length)) # vector con valor mínimo y máximo
+g <- range(iris$Sepal.Length)
+rango <- g[2]-g[1]
+print(rango)
+```
+```{r rango2, echo=TRUE}
+rango2 <- max(iris$Sepal.Length) - min(iris$Sepal.Length)
+print(rango2)
+```
+
+
+
+
+
