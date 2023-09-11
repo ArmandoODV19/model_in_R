@@ -217,5 +217,17 @@ print(quantile(iris$Sepal.Length, probs = 0.77))
 print(quantile(iris$Sepal.Length, probs = c(0.33, 0.66)))
 ```
 
+No obstante, podemos echar un vistazo rápido sobre el comportamiento de los datos mediante la función *glimpse()* de la paquetería *dplyr* y la función *summary()* de la paquetería *base*
+
+Para utilizar la función *glimpse()* debemos tener instalada la paquetería *dply* y posteriormente, llamarla al flujo de trabajo
+
+```{r glimpse, echo=TRUE, message=FALSE}
+# install.packages('dplyr')
+library(dplyr)
+glimpse(iris)
+```
+
+
+
 ### Otras medidas
 
