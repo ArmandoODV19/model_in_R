@@ -185,13 +185,19 @@ print(mfv(f, na_rm = TRUE))
 
 ### Medidas de dispersión
 
+Las medidas de dispersión ayudan a entender la distribución de los datos y como estos se comportan en relación al promedio. De esta manera, definimos que tan homogéneos o heterogéneos son los datos. Dentro de estas medidas encontramos a la varianza y la desviación estándar.
+
+La varianza indica que tan dispersos se encuentran los datos en comparación al promedio. Cuanto mayor sea la varianza, existe una dispersión de los datos elevada. Para obtener la varianza de un conjunto de datos se utiliza la función *var()*.
+
 ```{r varianza, echo=TRUE}
 print(var(iris$Sepal.Length))
 print(var(iris$Sepal.Width))
 ```
 
+No obstante, una de las desventajas de la varianza es que el resultado presente se encuentra en unidades cuadradas. Esto, al ser comparado con los datos de inicio genera confusión, por lo cual es necesario transformar este resultado mediante la raiz cuadrada. Es así, como se obtiene el grado de dispersión de los datos. La desviación estándar o típica se genera con la función *sd()*, o al aplicar la función *sqrt()* (raíz cuadrada) sobre el resultado de la varianza.
 
 ```{r desviacion, echo=TRUE}
+print(sqrt(var(iris$Sepal.Length)))
 print(sd(iris$Sepal.Length))
 print(sd(iris$Sepal.Width))
 ```
@@ -199,14 +205,14 @@ print(sd(iris$Sepal.Width))
 
 ### Cuantiles(Cuartiles, deciles, percentiles)
 
-Los cuantiles permiten dividir el conjunto de datos en partes iguales. Con el objetivo de terminar rangos en los cuales se encuentra cierto porcentaje de los datos. En primer lugar, echaremos un vistazo a los cuartiles. Estos, dividen a la población en cuatro sectores, realizando tres cortes en específico. Siendo estos el 25%, 50% y 75%. Para hacer esto en un conjunto de datos utilizamos la función *quantile()*.
+Los cuantiles dividen el conjunto de datos en partes iguales. Con el objetivo de determinar rangos en los cuales se encuentra cierto porcentaje de la información. En primer lugar, echaremos un vistazo a los cuartiles. Estos, dividen a la población en cuatro sectores, realizando tres cortes en específico. Siendo estos el 25%, 50% y 75%. Para hacer esto en un conjunto de datos utilizamos la función *quantile()*.
 
 ```{r cuartil, echo=TRUE}
 print(quantile(iris$Sepal.Length))
 print(quantile(iris$Sepal.Width))
 ```
 
-Los deciles realizan 9 cortes en el conjunto de datos, obteniendo 10 grupos en los cuales se encuentran distribuidos los datos. Al igual que en los cuartiles, se utiliza la función *quantile()*. Sin embargo, se agrega el argumento probs = paradefinir el número de cortes dentro del dataset. Estos cortes, se incluyen dentro de un vector acompañado de la función concatenar *c()*.
+Los deciles realizan 9 cortes en el conjunto de datos, obteniendo 10 grupos en los cuales se encuentran distribuidos los datos. Al igual que en los cuartiles, se utiliza la función *quantile()*. Sin embargo, se agrega el argumento probs = para definir el número de cortes dentro del dataset. Estos cortes, se incluyen dentro de un vector acompañado de la función concatenar *c()*.
 
 ```{r deciles, echo=TRUE}
 print(quantile(iris$Sepal.Length, probs = c(0, 0.1, 0.2, 0.3, 0.4, 0.5,
