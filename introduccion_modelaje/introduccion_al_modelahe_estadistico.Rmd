@@ -199,23 +199,33 @@ print(sd(iris$Sepal.Width))
 
 ### Cuantiles(Cuartiles, deciles, percentiles)
 
+Los cuantiles permiten dividir el conjunto de datos en partes iguales. Con el objetivo de terminar rangos en los cuales se encuentra cierto porcentaje de los datos. En primer lugar, echaremos un vistazo a los cuartiles. Estos, dividen a la población en cuatro sectores, realizando tres cortes en específico. Siendo estos el 25%, 50% y 75%. Para hacer esto en un conjunto de datos utilizamos la función *quantile()*.
+
 ```{r cuartil, echo=TRUE}
 print(quantile(iris$Sepal.Length))
 print(quantile(iris$Sepal.Width))
 ```
+
+Los deciles realizan 9 cortes en el conjunto de datos, obteniendo 10 grupos en los cuales se encuentran distribuidos los datos. Al igual que en los cuartiles, se utiliza la función *quantile()*. Sin embargo, se agrega el argumento probs = paradefinir el número de cortes dentro del dataset. Estos cortes, se incluyen dentro de un vector acompañado de la función concatenar *c()*.
 
 ```{r deciles, echo=TRUE}
 print(quantile(iris$Sepal.Length, probs = c(0, 0.1, 0.2, 0.3, 0.4, 0.5,
                                             0.6, 0.7, 0.8, 0.9, 1)))
 ```
 
+Por su parte, los percentiles realizan 99 cortes en el grupo de datos. Proporcionando 100 grupos en los cuales se distribuye la información. Al igual que los deciles utilizamos la función *quantile()*, acompañado del argumento probs = . En el siguiente ejemplo, se muestra el límite en el cual se encuentran el 77% de los datos para la longitud de sépalo.
+
 ```{r percentiles, echo=TRUE}
 print(quantile(iris$Sepal.Length, probs = 0.77))
 ```
 
+De la misma manera, es posible establecer rangos para determinar los valores que abarca cierto porcentaje de la porblación. El siguiente ejemplo muestra el rango en el cual se encuentran el 33% y 66% de los datos.
+
 ```{r percentiles2, echo=TRUE}
 print(quantile(iris$Sepal.Length, probs = c(0.33, 0.66)))
 ```
+
+**Nota: si solo queremos conocer un cuantil en específico se suele omitir la función *c()*. Por otra parte, al utilizar un vector, obligatorio utilizar la función concatenar** 
 
 No obstante, podemos echar un vistazo rápido sobre el comportamiento de los datos mediante la función *glimpse()* de la paquetería *dplyr* y la función *summary()* de la paquetería *base*
 
