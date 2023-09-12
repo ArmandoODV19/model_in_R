@@ -24,13 +24,13 @@ Se generará un apartado para nuestro nuevo proyecto. Por el momento nos enfocar
 knitr::include_graphics('tipo de proyecto.png')
 ```
 
-Ahora, indicaremos la ubicación donde se guardará el proyecto
+Ahora, indicaremos la ubicación donde se guardará el proyecto.
 
 ```{r imagen3, echo=FALSE, out.width='60%', fig.align='center'}
 knitr::include_graphics('guardando_proyecto.png')
 ```
 
-A continuación, se reiniciará la sesión de R, destacando que nuestro apartado de folder ahora estará colocado en sitio donde se generó el proyecto.
+A continuación, se reiniciará la sesión de R, destacando que nuestro apartado de archivos o files ahora estará colocado en el sitio donde se generó el proyecto.
 
 
 ```{r imagen4, echo=FALSE, out.width='60%', fig.align='center'}
@@ -49,25 +49,24 @@ De esta manera, todo lo que creemos puede ser guardado en una misma sesión. Asi
 # creando carpeta data
 dir.create('data')
 
-# generando un dataset con la informacion de irir
+# generando un dataset con la informacion de iris
 iris_df <- iris
 
 # guardando el dataset
 write.csv(iris_df, 'data/iris.csv', row.names = FALSE)
 
-# de esta manera se carga el conjunto de datos en la carpeta.
 
-# Para cargar lod datos utilizaremos la funcion read_csv() de readr
+# Para cargar los datos utilizaremos la funcion read_csv() de readr
 iris_df2 <- read_csv('data/iris.csv')
 ```
 
-Antes de comenzar veremos brevemente los tipos de variables de trabajo más comúnes 
+Antes de comenzar, veremos brevemente los tipos de variables de trabajo más comúnes 
 
 ```{r variables, echo=TRUE}
 # variables con un solo elemento
 x <- 2 # tipo numérico
 y <- 'A' # tipo caracter
-# los vectores los cuales son un tipo de representación en una sola dimensión
+# los vectores, los cuales son un tipo de representación en una sola dimensión
 z <- c(1,2,3,4,5) # Tipo numérico
 a <- c('a', 'b', 'c') # tipo caracter
 # los dataframes, representaciones de datos en dos dimenciones
@@ -87,7 +86,7 @@ con esta introducción al manejo de proyectos podemos comenzar con la clase
 
 ## Estadística descriptiva e inferencial
 
-La estadística descriptiva suele ser el primer acercamiento analítico para entender el comportamiento de los datos. Visto de otra manera, se considera como un resumen de las variables más comunes de los datos. Asimismo, en esta categoría encontramos dos grupos, las medidas de tendencia central (media, moda, mediana) y las medidas de disperción (varianza, desviación típica). Además, se destacan otras medidas como el valor máximo, mínimo, y rango. Por mencionar algunos.
+La estadística descriptiva suele ser el primer acercamiento analítico para entender el comportamiento de los datos. Visto de otra manera, se considera como un resumen de las variables más comunes. Asimismo, en esta categoría encontramos dos grupos, las medidas de tendencia central (media, moda, mediana) y las medidas de dispersión (varianza, desviación típica). Además, se destacan otras medidas como el valor máximo, mínimo, y rango. Por mencionar algunos.
 
 
 Por su parte, la estadística inferencial se encarga de generar predicciones desde la información presente en el conjunto de datos. Por ejemplo, definir las ventas del próximo mes a partir de las ventas del año pasado. Detallar la probabilidad de que ocurra un evento, dado la ocurrencia de otro. Entre estos podemos mencionar a los modelos lineales, series de tiempo, cadenas de Markov, solo por definir algunos ejemplos.
@@ -97,7 +96,7 @@ Por su parte, la estadística inferencial se encarga de generar predicciones des
 
 Comenzaremos con las medidas de tendencia central. Media aritmética, mediana, moda
 
-La media aritmética es el promedio de un conjunto de valores. Para calcularla se suman todos los valores y se divide sobre el total de elementos. En R, se puede calcular mediante la función mean(). A continuación, calcularemos el promedio de los valores de *Sepal.Length*, *Sepal.Width*,  *Petal.Length*, y *Petal.Width* del conjunto de datos iris.
+La media aritmética es el promedio de un conjunto de valores. Para calcularla se suman todos los valores y se divide sobre el total de elementos. En R, se puede obtener mediante la función *mean()*. A continuación, calcularemos el promedio de los valores de *Sepal.Length*, *Sepal.Width*,  *Petal.Length*, y *Petal.Width* del conjunto de datos iris.
 
 ```{r promedio, echo=TRUE}
 print(mean(iris$Sepal.Length))
@@ -130,7 +129,7 @@ print(mean(iris$Sepal.Length))
 
 **Nota: en ambos casos trabajamos solo con vectores, dejando de lado el resto de la información y sus dimensiones**
 
-En ocasiones encontraremos conjuntos de datos con información faltante. Si utilizamos la función *mean()* de forma directa encontraremos un error
+En ocasiones encontraremos conjuntos de datos con información faltante. Si utilizamos la función *mean()* de forma directa obtendremos un error.
 
 ```{r error_mean, echo=TRUE}
 d <- c(1, 3, 4, 2, 2, 1, 4, 5, NA, 6, 5, 4, 4)
@@ -163,7 +162,7 @@ d <- c(1, 3, 4, 2, 2, 1, 4, 5, NA, 6, 5, 4, 4)
 median(d, na.rm = TRUE)
 ```
 
-La moda es el valor con mayor repetición dentro de un conjunto de datos. Es decir, es aquel valor con la mayor frecuencia. Al igual que la mediana, si se aplica a un conjunto de datos que sigue la distribución normal, su valor será similar a la media aritmética. Dentro de la paquetería base de estadística en R no existe una función que permita calcular la moda. No obstante, descargaremos la paquetería *modeest* y utilizaremos la función mfv(). Para ello, instalaremos y llamaremos a esta paquetería en el flujo de trabajo.
+La moda es el valor con mayor repetición dentro de un conjunto de datos. Es decir, es aquel valor con la mayor frecuencia. Al igual que la mediana, si se aplica a un conjunto de datos que sigue la distribución normal, su valor será similar a la media aritmética. Dentro de la paquetería base de estadística en R no existe una función que permita calcular la moda. No obstante, descargaremos la paquetería *modeest* y utilizaremos la función *mfv()*. Para ello, instalaremos y llamaremos a esta paquetería en el flujo de trabajo.
 
 ```{r moda, echo=TRUE, warning=FALSE}
 # install.packages('modeest')
@@ -187,7 +186,7 @@ print(mfv(f, na_rm = TRUE))
 
 Las medidas de dispersión ayudan a entender la distribución de los datos y como estos se comportan en relación al promedio. De esta manera, definimos que tan homogéneos o heterogéneos son los datos. Dentro de estas medidas encontramos a la varianza y la desviación estándar.
 
-La varianza indica que tan dispersos se encuentran los datos en comparación al promedio. Cuanto mayor sea la varianza, existe una dispersión de los datos elevada. Para obtener la varianza de un conjunto de datos se utiliza la función *var()*.
+La varianza indica que tan dispersos se encuentran los datos en comparación al promedio. Cuanto mayor sea la varianza, existe una dispersión elevada. Para obtener la varianza de un conjunto de datos se utiliza la función *var()*.
 
 ```{r varianza, echo=TRUE}
 print(var(iris$Sepal.Length))
@@ -225,17 +224,17 @@ Por su parte, los percentiles realizan 99 cortes en el grupo de datos. Proporcio
 print(quantile(iris$Sepal.Length, probs = 0.77))
 ```
 
-De la misma manera, es posible establecer rangos para determinar los valores que abarca cierto porcentaje de la porblación. El siguiente ejemplo muestra el rango en el cual se encuentran el 33% y 66% de los datos.
+De la misma manera, es posible establecer rangos para determinar los valores que abarcan cierto porcentaje de la porblación. El siguiente ejemplo muestra el rango en el cual se encuentran el 33% y 66% de los datos.
 
 ```{r percentiles2, echo=TRUE}
 print(quantile(iris$Sepal.Length, probs = c(0.33, 0.66)))
 ```
 
-**Nota: si solo queremos conocer un cuantil en específico se suele omitir la función *c()*. Por otra parte, al utilizar un vector, obligatorio utilizar la función concatenar** 
+**Nota: si solo queremos conocer un cuantil en específico se suele omitir la función *c()*. Por otra parte, al utilizar un vector, es obligatorio utilizar la función concatenar** 
 
-No obstante, podemos echar un vistazo rápido sobre el comportamiento de los datos mediante la función *glimpse()* de la paquetería *dplyr* y la función *summary()* de la paquetería *base*
+No obstante, podemos echar un vistazo rápido sobre el comportamiento de los datos mediante la función *glimpse()* de la paquetería *dplyr* y la función *summary()* de la paquetería *base*.
 
-Para utilizar la función *glimpse()* debemos tener instalada la paquetería *dply* y posteriormente, llamarla al flujo de trabajo
+Para utilizar la función *glimpse()* debemos tener instalada la paquetería *dplyr* y posteriormente, llamarla al flujo de trabajo.
 
 ```{r glimpse, echo=TRUE, message=FALSE}
 # install.packages('dplyr')
@@ -270,7 +269,7 @@ print(max(iris$Sepal.Length))
 print(max(iris$Sepal.Width))
 ```
 
-Por último, el rango muestra la diferencia presente entre el valor máximo y el valor mínimo de un conjunto de datos. La función *range()* genera un vector con el valor mínimo y el valor máximo. Este resultado puede ser utilizado para encontrar el valor del rango. El siguiente código muestra un ejemplo de cómo realizar este procedimiento.
+Por último, el rango muestra la diferencia presente entre el valor máximo y el valor mínimo de un conjunto de datos. La función *range()* genera un vector con el valor mínimo y el valor máximo, respectivamente. Este resultado puede ser utilizado para encontrar el valor del rango. El siguiente código muestra un ejemplo de cómo realizar este procedimiento.
 
 ```{r rango, echo=TRUE}
 print(range(iris$Sepal.Length)) # vector con valor mínimo y máximo
