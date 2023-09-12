@@ -287,7 +287,15 @@ rango2 <- max(iris$Sepal.Length) - min(iris$Sepal.Length)
 print(rango2)
 ```
 
+**TAREA**
 
+Genera un proyecto para el curso. En este agregarás las siguientes carpetas:
+* scripts
+* images
+* raw_data
+* clean_data
+
+Posteriormente, guarda las anotaciones realizadas en este curso dentro de la carpeta scripts
 
 
 
