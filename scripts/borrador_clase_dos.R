@@ -45,3 +45,39 @@ loudness_samp <- sample(loudness_pop, size = 100) # ejemplo
 set.seed(123) # para generar datos reproducibles
 
 rnorm(5) # sin set.seed genera numeros nuevos al azar
+
+
+## boostrapping
+
+# resampling sampling with replacement
+
+# se agrega replace = TRUE
+spotify_sample <- spotify_population %>% slice_sample(prop = 1, replace = TRUE)
+# porp = 1 como argumento genera una muestra del mismo tamaño del dataset original
+
+
+# diferencias
+
+# sampling: de la poblacion a una muestra
+# bootstrapping: crear una poblacion teorica de la muestra
+
+
+# Replicate this 1000 times
+mean_danceability_1000 <- replicate(
+  n = 1000,
+  expr = {
+    spotify_1_resample <- spotify_sample %>%
+      slice_sample(prop = 1, replace = TRUE)
+    spotify_1_resample %>%
+      summarize(mean_danceability = mean(danceability)) %>%
+      pull(mean_danceability)
+  }
+)
+
+# See the result
+mean_danceability_1000
+
+
+
+
+
