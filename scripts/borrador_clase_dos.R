@@ -22,4 +22,9 @@
 ?slice_sample
 
 
-spotify_sample <- spotify_population %>% slice_sample(n = 1000)
+spotify_sample <- spotify_population %>% slice_sample(n = 1000) # ejemplo
+
+####
+
+loudness_pop <- spotify_population$loudness
+loudness_samp <- sample(loudness_pop, size = 100) # ejemplo
