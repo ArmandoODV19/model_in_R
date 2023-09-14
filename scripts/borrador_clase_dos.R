@@ -133,3 +133,22 @@ dado_100000 <- dice %>%
 ggplot(dado_100000, aes(x = n)) +
   geom_histogram()
 
+
+# distribucion uniforme en R
+# con esta funcion se puede realizar en discretos y continuos
+
+# probabilidad de menos de 5
+punif(5, min = 0, max = 6)
+
+# probabilidad de mas de 5
+punif(5, min = 0, max = 6, lower.tail = FALSE)
+
+# proabilidad de obtener entre 4 < p < 5
+punif(5, min = 0, max = 6) - punif(4, min = 0, max = 6)
+
+
+# proabilidad de obtener entre 3 < p < 5
+punif(5, min = 0, max = 6) - punif(3, min = 0, max = 6)
+
+# probabilidad de obtener menos de 6
+punif(, min = 0, max = 6)
