@@ -26,5 +26,13 @@ spotify_sample <- spotify_population %>% slice_sample(n = 1000) # ejemplo
 
 ####
 
+# the literacy digest landon roosevelt
+
+# el muesttreo por conveniencia puede generar sesgos y resultados imparciales
+
+# no se recomienda usar head o slice_head() por no ser aleatorios
+
+
+
 loudness_pop <- spotify_population$loudness
 loudness_samp <- sample(loudness_pop, size = 100) # ejemplo
