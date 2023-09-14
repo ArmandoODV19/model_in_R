@@ -16,3 +16,10 @@
 ?sample
 # toma una muestra de un determinado tamaño de los elementos de x con
 # y sin reemplazo
+
+# sample pertenece a base. Vcetores
+# slice_sample pertenece a dplyr. flujos de trabajo y df
+?slice_sample
+
+
+spotify_sample <- spotify_population %>% slice_sample(n = 1000)
