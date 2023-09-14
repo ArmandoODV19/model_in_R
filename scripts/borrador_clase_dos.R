@@ -78,6 +78,12 @@ mean_danceability_1000 <- replicate(
 mean_danceability_1000
 
 
+### DISTRIBUCION
+
+
+# discreta
+
+
 
 
 
