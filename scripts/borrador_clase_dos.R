@@ -36,3 +36,12 @@ spotify_sample <- spotify_population %>% slice_sample(n = 1000) # ejemplo
 
 loudness_pop <- spotify_population$loudness
 loudness_samp <- sample(loudness_pop, size = 100) # ejemplo
+
+
+###
+
+# set seed para repetir resultados
+
+set.seed(123) # para generar datos reproducibles
+
+rnorm(5) # sin set.seed genera numeros nuevos al azar
