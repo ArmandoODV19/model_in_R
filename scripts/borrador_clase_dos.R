@@ -81,9 +81,55 @@ mean_danceability_1000
 ### DISTRIBUCION
 
 
-# discreta
+# distribucion probabilistica
+
+# la probabilidad de que un evento ocurra debe ser igual a 1.
+# la suma de las posibilidades deben ser igual a 1
+
+# en la distribución uniforme todos los eventos tienen la misma
+# posibilidad de suceder
+
+dice <- data.frame(n = c(1,2,3,4,5,6),
+                   prop = c(1/6,1/6,1/6,1/6,1/6,1/6))
+dice
+
+library(ggplot2)
+ggplot(dice, aes(x = n, y = prop)) +
+  geom_col() +
+  ylim(0,1)
 
 
+library(dplyr)
+dado_5 <- dice %>%
+  sample_n(5, replace = TRUE)
+
+ggplot(dado_5, aes(x = n)) +
+  geom_histogram()
+
+library(dplyr)
+dado_10 <- dice %>%
+  sample_n(10, replace = TRUE)
+
+ggplot(dado_10, aes(x = n)) +
+  geom_histogram()
+
+dado_100 <- dice %>%
+  sample_n(100, replace = TRUE)
+
+ggplot(dado_100, aes(x = n)) +
+  geom_histogram()
 
 
+dado_1000 <- dice %>%
+  sample_n(1000, replace = TRUE)
+
+ggplot(dado_1000, aes(x = n)) +
+  geom_histogram()
+
+
+dado_100000 <- dice %>%
+  sample_n(100000, replace = TRUE)
+
+ggplot(dado_100000, aes(x = n)) +
+  geom_histogram()
 
