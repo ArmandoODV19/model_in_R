@@ -150,5 +150,14 @@ punif(5, min = 0, max = 6) - punif(4, min = 0, max = 6)
 # proabilidad de obtener entre 3 < p < 5
 punif(5, min = 0, max = 6) - punif(3, min = 0, max = 6)
 
-# probabilidad de obtener menos de 6
-punif(, min = 0, max = 6)
+# probabilidad de obtener menor de 6
+punif(6, min = 0, max = 6)
+
+
+
+# distribucion normal
+# es simetrica, la probabilidad nunca es igual a 0
+# la probabilidad siempre es 1
+# se basa en la media y la desviacion estandar
+
+# no todo sigue una distribucion uniforme
