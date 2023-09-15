@@ -161,3 +161,29 @@ punif(6, min = 0, max = 6)
 # se basa en la media y la desviacion estandar
 
 # no todo sigue una distribucion uniforme
+
+# 68% de la poblacion se encuentra en la primera desviacion estandar
+# 95% en dos de, 99.7 en 3 de
+
+# para esto se utiliza la funcion pnorm()
+# ejemplo cuantas personas miden menos de 154 cm
+# se necesita conocer el promedio y la desviacion estandar
+
+pnorm(154, mean = 161, sd = 7)
+
+# mayor a 154
+pnorm(154, mean = 161, sd=7, lower.tail = FALSE)
+
+# rangos. Entre 154 y 157
+pnorm(157, mean = 161, sd = 7) - pnorm(154, mean  = 161, sd = 7)
+
+
+# tambien se pueden calcular porcentajes utilizando la funcion qnorm()
+
+# que estatura mas corta tiene el 90% de la poblacion
+
+qnorm(0.9, mean = 161, sd = 7)
+
+# estatura mas alta al 90% de la poblacion
+
+qnorm(0.9, mean = 161, sd = 7, lower.tail = FALSE)
