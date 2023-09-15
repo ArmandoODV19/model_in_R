@@ -187,3 +187,8 @@ qnorm(0.9, mean = 161, sd = 7)
 # estatura mas alta al 90% de la poblacion
 
 qnorm(0.9, mean = 161, sd = 7, lower.tail = FALSE)
+
+
+# 10 numeros al azar siguiendo la distribucion normal
+
+rnorm(10, mean = 161, sd = 7)
