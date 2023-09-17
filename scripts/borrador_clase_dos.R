@@ -338,3 +338,24 @@ dummy_data_2[is.na(dummy_data_2)] = 0
 dummy_data_2
 
 # recode por columna
+
+dummy_data_3 <- data.frame(id=c(2,1,3,4,NA,6,7,8,9,10,11,12),
+                           horas_estudio=c(NA,5,4,2,1,3,NA,2,4,3,5,NA),
+                           horas_recre=c(9,NA,8,3,NA,8,5,6,8,NA,4,7),
+                           edad = c(20,15,NA,22,NA,17,18,NA,18,20,18,15))
+
+summary(dummy_data_3)
+# recode horas de estudio
+mean(dummy_data_3$horas_estudio, na.rm = TRUE)
+dummy_data_3$horas_estudio[is.na(dummy_data_3$horas_estudio)]=3.2
+dummy_data_3
+
+# recode horas recreativas
+mean(dummy_data_3$horas_recre, na.rm = TRUE)
+dummy_data_3$horas_recre[is.na(dummy_data_3$horas_recre)] = 6.4
+dummy_data_3
+
+# recode edad
+mean(dummy_data_3$edad, na.rm = TRUE)
+dummy_data_3$edad[is.na(dummy_data_3$edad)] = 18
+dummy_data_3
