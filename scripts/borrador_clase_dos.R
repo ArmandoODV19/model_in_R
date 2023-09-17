@@ -225,4 +225,16 @@ replicate(1000, sample(dado, 5, replace = TRUE) %>%
 
 ### la distribucion binominal
 
+# dos posbiles resultados
+# 1 y 0, exito y fracaso, ganar y perder
+
+
+# en R es posible hacer esto con la funcion
+# rbinom(numero_observaciones, numero_ensayos, exito)
+
+rbinom(2, 1, 0.5)
+
+
+
+
 
