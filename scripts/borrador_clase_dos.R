@@ -195,6 +195,9 @@ rnorm(10, mean = 161, sd = 7)
 
 
 ## teorema del limite central
+# la distribución de la muestra se acerca a la distribucion
+# normal en cuanto aumentan el numero de experimentos
+
 library(dplyr)
 library(ggplot2)
 
