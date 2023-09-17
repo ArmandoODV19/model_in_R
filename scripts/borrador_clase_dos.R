@@ -221,3 +221,8 @@ replicate(1000, sample(dado, 5, replace = TRUE) %>%
 replicate(1000, sample(dado, 5, replace = TRUE) %>%
             mean()) %>% as.data.frame() %>%
   ggplot(aes(x = .)) + geom_histogram()
+
+
+### la distribucion binominal
+
+
