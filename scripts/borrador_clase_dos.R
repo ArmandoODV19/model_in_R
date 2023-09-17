@@ -246,6 +246,8 @@ rbinom(2, 3, 0.5) # se hicieron dos ensayos.
 # 10 experimentos. 3 ensayos por experimento
 rbinom(10, 3, 0.5)
 
+# modificando probabilidad de exito
 
+rbinom(1, 1, 0.25)
 
 
