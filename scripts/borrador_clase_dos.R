@@ -234,6 +234,17 @@ replicate(1000, sample(dado, 5, replace = TRUE) %>%
 
 rbinom(2, 1, 0.5)
 
+# si se cambia el segundo argumento, indica
+# el numero de exitos
+
+set.seed(123)
+rbinom(2, 3, 0.5) # se hicieron dos ensayos.
+# en cada una se lanzaron 3 monedas. hubo un exito
+# en la primera y dos exitos en la segunda
+
+
+# 10 experimentos. 3 ensayos por experimento
+rbinom(10, 3, 0.5)
 
 
 
