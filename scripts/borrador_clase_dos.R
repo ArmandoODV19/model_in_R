@@ -192,3 +192,27 @@ qnorm(0.9, mean = 161, sd = 7, lower.tail = FALSE)
 # 10 numeros al azar siguiendo la distribucion normal
 
 rnorm(10, mean = 161, sd = 7)
+
+
+## teorema del limite central
+library(dplyr)
+library(ggplot2)
+
+dado <- seq(1,6,1)
+
+replicate(10, sample(dado, 5, replace = TRUE) %>%
+                     mean()) %>% as.data.frame() %>%
+  ggplot(aes(x = .)) + geom_histogram()
+
+
+replicate(100, sample(dado, 5, replace = TRUE) %>%
+            mean()) %>% as.data.frame() %>%
+  ggplot(aes(x = .)) + geom_histogram()
+
+replicate(1000, sample(dado, 5, replace = TRUE) %>%
+            mean()) %>% as.data.frame() %>%
+  ggplot(aes(x = .)) + geom_histogram()
+
+replicate(1000, sample(dado, 5, replace = TRUE) %>%
+            mean()) %>% as.data.frame() %>%
+  ggplot(aes(x = .)) + geom_histogram()
