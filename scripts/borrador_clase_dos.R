@@ -359,3 +359,7 @@ dummy_data_3
 mean(dummy_data_3$edad, na.rm = TRUE)
 dummy_data_3$edad[is.na(dummy_data_3$edad)] = 18
 dummy_data_3
+
+### identificar cuartiles
+
+
