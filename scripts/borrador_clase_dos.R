@@ -277,9 +277,22 @@ pbinom(7, 10, 0.5) + pbinom(7, 10, 0.5, lower.tail = FALSE)
 
 
 ##### ejemplos de clase previa
+library(dplyr)
 
 
+summary(iris)
+glimpse(iris)
 
 
+df=data.frame(id=c(2,1,3,4,NA),
+              name=c('sravan',NA,'chrisa','shivgami',NA),
+              gender=c(NA,'m',NA,'f',NA))
+
+summary(df)
+glimpse(df)
+which(is.na(df))
+sum(is.na(df))
+which(is.na(df$gender))
 
 
+# conociendo datos y NA
