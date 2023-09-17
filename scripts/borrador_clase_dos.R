@@ -246,8 +246,38 @@ rbinom(2, 3, 0.5) # se hicieron dos ensayos.
 # 10 experimentos. 3 ensayos por experimento
 rbinom(10, 3, 0.5)
 
-# modificando probabilidad de exito
+# modificando probabilidad de exito al 25%
 
 rbinom(1, 1, 0.25)
+
+# para obtener la probabilidad de obtener
+# n exitos se utiliza la funcion
+# dbinom()
+# ejemplo, obtener 7 exitos en 10 experimentos
+
+dbinom(7, 10, 0.5)
+
+
+# pbinom() genera la probabilidad de encontrar n o
+# menos exitos
+# ejemplo, probabilidad de obtener igual o menos de 7 exitos
+# en 10 experimentos
+
+pbinom(7, 10, 0.5)
+
+# con el argumento lower.tail = se obtiene la proabbilidad
+# de tener mas de n exitos
+# ejemplo, obtener mas de 7 exitos en 10 experimentos
+
+pbinom(7, 10, 0.5, lower.tail = FALSE)
+
+
+# siempre 1
+pbinom(7, 10, 0.5) + pbinom(7, 10, 0.5, lower.tail = FALSE)
+
+
+
+
+
 
 
