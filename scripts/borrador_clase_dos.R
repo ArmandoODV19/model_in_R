@@ -276,6 +276,8 @@ pbinom(7, 10, 0.5, lower.tail = FALSE)
 pbinom(7, 10, 0.5) + pbinom(7, 10, 0.5, lower.tail = FALSE)
 
 
+##### ejemplos de clase previa
+
 
 
 
