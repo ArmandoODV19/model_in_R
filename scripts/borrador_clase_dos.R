@@ -197,6 +197,8 @@ rnorm(10, mean = 161, sd = 7)
 ## teorema del limite central
 # la distribución de la muestra se acerca a la distribucion
 # normal en cuanto aumentan el numero de experimentos
+# esto solo aplica cuando las muestras se toman al
+# de manera independiente
 
 library(dplyr)
 library(ggplot2)
