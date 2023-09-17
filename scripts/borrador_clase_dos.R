@@ -296,3 +296,45 @@ which(is.na(df$gender))
 
 
 # conociendo datos y NA
+
+# generamos df ficticion
+
+dummy_data <- data.frame(id=c(2,1,3,4,NA),
+              horas_estudio=c(2, 5, 4, 2, 1),
+              horas_recre=c(4, 2, 4, 3, 1),
+              edad = c(20, 15, 16, 22, 20))
+
+# contar y detectar NA de dataset
+
+sum(is.na(dummy_data))
+summary(dummy_data)
+which(is.na(dummy_data$id))
+which(is.na(dummy_data$nombre))
+which(is.na(dummy_data$sexo))
+
+# mas rapido
+na_count <- sapply(dummy_data, function(y) sum(length(which(is.na(y)))))
+na_count
+
+# eliminando NA con na.omit()
+
+na.omit(dummy_data)
+
+# hay que tener cuidado
+
+dummy_data_2 <- data.frame(id=c(2,1,3,4,NA),
+                           horas_estudio=c(NA, 5, 4, 2, 1),
+                           horas_recre=c(4, NA, 4, 3, 1),
+                           edad = c(20, 15, NA, 22, NA))
+
+na.omit(dummy_data_2)
+
+na_count <- sapply(dummy_data_2, function(y) sum(length(which(is.na(y)))))
+na_count
+
+
+# RECODE por 0 en todo el df
+dummy_data_2[is.na(dummy_data_2)] = 0
+dummy_data_2
+
+# recode por columna
