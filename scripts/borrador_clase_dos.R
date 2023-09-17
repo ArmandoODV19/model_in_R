@@ -362,4 +362,17 @@ dummy_data_3
 
 ### identificar cuartiles
 
+# identificando puntos de corte
+
+quantile(iris$Sepal.Length)
+
+identificando_cuartiles <- function(x){
+  if(x <= 5.1) print('debajo Q1')
+  if(x > 5.1 & x <= 5.8) print('entre Q1 y Q2')
+  if(x >5.8 & x <= 6.4) print('entre Q2 y Q3')
+  if(x > 6.4) print('superior a Q3')
+}
+
+identificando_cuartiles(6.5)
+
 
