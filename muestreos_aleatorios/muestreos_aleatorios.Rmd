@@ -9,5 +9,35 @@ output: pdf_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## Muestreo
+## Dudas de la clase previa
+
+### Recodificar NA's
+
+Los NA's son valores faltantes o no disponibles, los cuales suelen representar un problema durante la transformación y procesamiento de los datos. Por lo cual, previo a realizar cualquier análisis o función sobre el dataset es necesario conocer el comportamiento de nuestros datos. Para esto utilizaremos la función *summary()* de la paquetería *base* (Esta paquetería se encuentra instalada por defecto en el lenguaje de programación R, por lo cual no es necesario instalarla).
+
+Generaremos un data frame con valores NA.
+
+```{r dummy, echo=TRUE}
+dummy_data <- data.frame(id=c(2,1,3,4,NA),
+              horas_estudio=c(2, 5, 4, 2, 1),
+              horas_recre=c(4, 2, 4, 3, 1),
+              edad = c(20, 15, 16, 22, 20))
+
+summary(dummy_data)
+```
+
+Además de algunas medidas de estadísitca descriptiva, esta función detalla si existen NA's en nuestro dataset. Otra manera de conocer si existen o no NA's es mediante la función *is.na()*. Esta generará como resultado TRUE, en el sitio donde encuentre un resultado faltante.
+
+```{r dummy_2, echo=TRUE}
+is.na(dummy_data)
+
+# podemos acompañarlo con la función sum(), para saber el total de NA's 
+sum(is.na(dummy_data))
+
+# También, es posible utilizar la función which() para determinar el sitio
+# en la columna donde se encuentra el NA. En este caso, conocemos que el NA 
+# se encuentra en la columna id, ahora identificaremos su posición
+
+which(is.na(dummy_data$id))
+```
 
