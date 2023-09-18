@@ -9,6 +9,17 @@ output: pdf_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+## Librerías de trabajo
+
+Para esta clase necesitamos cargar las siguientes librerias
+
+```{r trabajo, echo=TRUE, warning=FALSE, message=TRUE}
+library(dplyr)
+library(ggplot2)
+
+```
+
+
 ## Dudas de la clase previa
 
 ### Recodificar NA's
@@ -18,7 +29,7 @@ Los NA's son valores faltantes o no disponibles, los cuales suelen representar u
 Generaremos un data frame con valores NA.
 
 ```{r dummy, echo=TRUE}
-dummy_data <- data.frame(id=c(2,1,3,4,NA),
+dummy_data <- data.frame(id=c(1,2,3,4,NA),
               horas_estudio=c(2, 5, 4, 2, 1),
               horas_recre=c(4, 2, 4, 3, 1),
               edad = c(20, 15, 16, 22, 20))
@@ -39,5 +50,97 @@ sum(is.na(dummy_data))
 # se encuentra en la columna id, ahora identificaremos su posición
 
 which(is.na(dummy_data$id))
+
+# Es así, como determinamos qué el valor faltante se encuentra en el quinto
+# lugar de la columna id
 ```
+
+Otra manera es utilizar la función *sapply()* acompañado de la función *sum()* para determinar el total de NA's por columna
+
+```{r dummy3, echo=TRUE}
+sapply(dummy_data, function(y) sum(length(which(is.na(y)))))
+```
+
+Estas son algunas maneras de identificar los valores faltantes. A continuación, se mostrarán algunos métodos para su eliminación.
+
+El primer método es la recodificación, en el cual se le agrega un valor concreto al NA. Esto, al colocar la posición en la que se encuentra y renombrarla. En este caso, al ver la numeración, suponemos que el id faltante es el numero 5.
+
+```{r dummy4, echo=TRUE}
+dummy_data$id[is.na(dummy_data$id)] = 5
+dummy_data
+```
+
+Vamos a generar de nuevo el valor NA. Sin embargo, en el siguiente ejemplo utilizaremos la función *na.omit()* para quitar el valor faltante. Esta función se caracteriza por eliminar la fila donde se encuentra el valor NA.
+
+```{r dummy5, echo=TRUE}
+dummy_data <- data.frame(id=c(1,2,3,4,NA),
+              horas_estudio=c(2, 5, 4, 2, 1),
+              horas_recre=c(4, 2, 4, 3, 1),
+              edad = c(20, 15, 16, 22, 20))
+
+na.omit(dummy_data)
+```
+
+**Nota: *na.omit()* puede ser funcional si la recodificación no es posible. No obstante, hay que tener cuidado en no eliminar la mayor parte de la información. Esto lo veremos a continuación**
+
+Si tenemos varios NA a lo largo del dataset, *na.omit()* puede ser contraproducente. El siguiente ejemplo lo detalla.
+
+```{r dummy6, echo=TRUE}
+dummy_data_2 <- data.frame(id=c(1,2,3,4,NA,6,7,8,9,10,11,12),
+                           horas_estudio=c(NA,5,4,2,1,3,NA,2,4,3,5,NA),
+                           horas_recre=c(9,NA,8,3,NA,8,5,6,8,NA,4,7),
+                           edad = c(20,15,NA,22,NA,17,18,NA,18,20,18,15))
+
+# contando NA's por columna
+sapply(dummy_data_2, function(y) sum(length(which(is.na(y)))))
+```
+
+Al aplicar la función *na.omit()* perdemos la mayor parte de la información
+
+```{r dummy7, echo=TRUE}
+na.omit(dummy_data_2)
+```
+
+Para este caso, podemos hacer dos maneras de recodificación. Colocar un 0 en todos los NA's, o definir un valor específico por columna.
+
+```{r dummy8, echo=TRUE}
+dummy_data_2 <- data.frame(id=c(1,2,3,4,NA,6,7,8,9,10,11,12),
+                           horas_estudio=c(NA,5,4,2,1,3,NA,2,4,3,5,NA),
+                           horas_recre=c(9,NA,8,3,NA,8,5,6,8,NA,4,7),
+                           edad = c(20,15,NA,22,NA,17,18,NA,18,20,18,15))
+
+dummy_data_2[is.na(dummy_data_2)] = 0
+
+dummy_data_2
+
+```
+
+Para el segundo caso, colocaremos el valor de la media aritmética por columna para el proceso de recodificación.
+
+```{r dummy9, echo=TRUE}
+dummy_data_2 <- data.frame(id=c(1,2,3,4,NA,6,7,8,9,10,11,12),
+                           horas_estudio=c(NA,5,4,2,1,3,NA,2,4,3,5,NA),
+                           horas_recre=c(9,NA,8,3,NA,8,5,6,8,NA,4,7),
+                           edad = c(20,15,NA,22,NA,17,18,NA,18,20,18,15))
+
+mean(dummy_data_2$horas_estudio, na.rm = TRUE)
+dummy_data_2$horas_estudio[is.na(dummy_data_2$horas_estudio)]=2.4
+
+mean(dummy_data_2$horas_recre, na.rm = TRUE)
+dummy_data_2$horas_recre[is.na(dummy_data_2$horas_recre)] = 4.8
+
+mean(dummy_data_2$edad, na.rm = TRUE)
+dummy_data_2$edad[is.na(dummy_data_2$edad)] = 13
+
+dummy_data_2
+```
+
+
+
+
+
+
+
+
+
 
