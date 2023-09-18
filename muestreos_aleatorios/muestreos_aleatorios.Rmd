@@ -13,7 +13,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 Para esta clase necesitamos cargar las siguientes librerias
 
-```{r trabajo, echo=TRUE, warning=FALSE, message=TRUE}
+```{r trabajo, echo=TRUE, warning=FALSE, message=FALSE}
 library(dplyr)
 library(ggplot2)
 
@@ -135,7 +135,62 @@ dummy_data_2$edad[is.na(dummy_data_2$edad)] = 13
 dummy_data_2
 ```
 
+**Nota: es posible combinar métodos de recodificación. Todo depende del objetivo de la limpieza del conjunto de datos**
 
+## Identificando cuartiles
+
+Los cuartiles dividen al conjunto de datos en 4 grupos, a partir de 3 puntos de corte. Primer cuartil (Q1, 25%), segundo cuartil (Q2, 50%), tercer cuartil (Q3, 75%). Derivado de esta información, podemos definir en que sitio se puede encontrar un dato nuevo. Los siguientes son solo ejemplo de cómo realizarlo, ya que pueden existir varias maneras de hacerlo.
+
+Primero identificaremos los cuartiles de la longitud del sépalo del dataset iris
+
+```{r cuartiles, echo=TRUE}
+quantile(iris$Sepal.Length)
+
+```
+
+La siguiente función genera un mensaje dependiendo del sitio en el cual se encuentra el nuevo valor
+
+```{r cuantiles2, echo=TRUE}
+identificando_cuartiles <- function(x){
+  if(x <= 5.1) print('debajo Q1')
+  if(x > 5.1 & x <= 5.8) print('entre Q1 y Q2')
+  if(x >5.8 & x <= 6.4) print('entre Q2 y Q3')
+  if(x > 6.4) print('superior a Q3')
+}
+
+identificando_cuartiles(6.5)
+```
+
+La función *case_when()* de la paquetería *dplyr* permite generar condiciones similares a las utilizadas en la función *if()*. Cuando se utiliza en conjunto a la función *mutate()*, los resultados se guardan en una columna nueva.
+
+```{r cuantiles3, echo=TRUE}
+iris_df <- iris
+
+quantile(iris_df$Sepal.Length)
+
+iris_df_cuartil <- iris_df %>%
+  mutate(cuartil = case_when(Sepal.Length <= 5.1 ~ '< Q1',
+                             Sepal.Length > 5.1 & Sepal.Length <= 5.8 ~ 'Q1 & Q2',
+                             Sepal.Length > 5.8 & Sepal.Length <= 6.4 ~ 'Q1 & Q3',
+                             Sepal.Length > 6.4 ~ '> Q3'))
+
+head(iris_df_cuartil)
+```
+
+De esta manera, se puede colocar una variable nueva, pegarla al dataset y conocer en que cuartil se encuentra.
+
+```{r cuartiles4, echo=TRUE}
+iris_df <- iris
+iris_nueva <- c(5.222,NA,NA,NA,NA)
+
+new_iris <- rbind(iris_nueva, iris_df)
+
+head(new_iris %>%
+       mutate(cuartil = case_when(Sepal.Length <= 5.1 ~ '< Q1',
+                                             Sepal.Length > 5.1 & Sepal.Length <= 5.8 ~ 'Q1 & Q2',
+                                             Sepal.Length > 5.8 & Sepal.Length <= 6.4 ~ 'Q1 & Q3',
+                                             Sepal.Length > 6.4 ~ '> Q3')),1)
+```
 
 
 
