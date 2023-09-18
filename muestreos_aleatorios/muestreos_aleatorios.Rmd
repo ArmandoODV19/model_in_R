@@ -246,7 +246,7 @@ summary(iris_boot)
 
 ```
 
-
+**Nota: en el muestreo sin reemplazo se genera una muestra a partir de la población. En el muestreo con reemplazo se desarrolla una población teórica derivado de la información de una muestra**
 
 
 
