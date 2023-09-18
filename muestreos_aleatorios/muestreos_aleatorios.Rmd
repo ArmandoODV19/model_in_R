@@ -192,6 +192,40 @@ head(new_iris %>%
                                              Sepal.Length > 6.4 ~ '> Q3')),1)
 ```
 
+## Muestreo
+
+Cuando el conjunto de datos es grande y representa un elevado costo económico y de tiempo máquina se recomienda utilizar muestras. Estas deben de ser aleatorias y representativas. Los estadísticos obtenidos se pueden generalizar e inferir el comportamiento de la población. En R, existen dos funciones que permiten realizar este proceso, *sample()* y *slice_sample()*. La función *sample()* forma parte de la paquetería *base*, y se utiliza para encontrar muestras de vectores. Por su parte, la función *slice_sample()* pertenece a la paquetería *dplyr* y funciona para obtener muestras de data frames.
+
+**Nota: debido a que las muestras se realizan "al azar", es necesario definir un parámetro que permita replicar los resultados cuando se trabaja en grupos o para verificar la información. Para esto, se utiliza la función *set.seed()* antes de comenzar a trabajar**
+
+En el siguiente ejemplo, se generará un vector con numeros del 1 al 100000. Posteriormente, se tomará una muestra de 20000 numeros. Dentro de la función *sample()*, se coloca como primer argumento el vector del cual se va a extraer la información y el segundo argumento indica el tamaño de la muestra.
+
+```{r muestra, echo=TRUE}
+set.seed(123)
+vectorcito <- seq(1, 100000, by = 1)
+
+vectorcito_muestra <- sample(vectorcito, size = 20000)
+
+length(vectorcito_muestra)
+
+```
+
+Por su parte, *slice_sample()*, permite obtener una muestra de un data frame. El siguiente ejemplo extraerá 100 elementos al azar del conjunto de datos iris.
+
+
+```{r muestra2, echo=TRUE}
+set.seed(123)
+iris_muestra <- slice_sample(iris, n = 100)
+
+summary(iris_muestra)
+summary(iris)
+```
+
+
+
+
+
+
 
 
 
