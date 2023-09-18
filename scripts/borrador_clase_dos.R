@@ -96,6 +96,7 @@ dice
 library(ggplot2)
 ggplot(dice, aes(x = n, y = prop)) +
   geom_col() +
+  scale_x_discrete(labels=c("1","2","3","4","5","6")) +
   ylim(0,1)
 
 
