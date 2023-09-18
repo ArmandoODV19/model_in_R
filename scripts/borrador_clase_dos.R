@@ -375,4 +375,24 @@ identificando_cuartiles <- function(x){
 
 identificando_cuartiles(6.5)
 
+# usando case_when()
 
+iris_df <- iris
+
+quantile(iris_df$Sepal.Length)
+
+iris_df_cuartil <- iris_df %>%
+  mutate(cuartil = case_when(Sepal.Length <= 5.1 ~ '< Q1',
+                             Sepal.Length > 5.1 & Sepal.Length <= 5.8 ~ 'Q1 & Q2',
+                             Sepal.Length > 5.8 & Sepal.Length <= 6.4 ~ 'Q1 & Q3',
+                             Sepal.Length > 6.4 ~ '> Q3'))
+
+iris_nueva <- c(5.222,NA,NA,NA,NA)
+
+new_iris <- rbind(iris_nueva, iris_df)
+
+head(new_iris %>%
+       mutate(cuartil = case_when(Sepal.Length <= 5.1 ~ '< Q1',
+                                             Sepal.Length > 5.1 & Sepal.Length <= 5.8 ~ 'Q1 & Q2',
+                                             Sepal.Length > 5.8 & Sepal.Length <= 6.4 ~ 'Q1 & Q3',
+                                             Sepal.Length > 6.4 ~ '> Q3')),1)
