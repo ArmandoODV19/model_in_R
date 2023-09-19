@@ -368,8 +368,32 @@ De esta manera, al aumentar el número de experimentos la distribución tiende a
 
 ## Distribución binominal
 
+La distribución binominal describre un evento con dos posibles resultados. Por ejemplo, la probabilidad de éxito o fracaso. O la probabilidad de obtener sol o águila al lanzar una moneda. En R se utiliza la función *rbinom()* de la paquetería *stats* para calcular esta distribución. Esta función toma como argumentos el numero de observasiones, numero de ensayos y probabilidad de éxito, en ese orden. Por ejemplo, se realizará un experimento, lanzando una moneda, la cual tiene 50% de probabilidad de caer águila (éxito) o sol (fracaso).
+
+```{r binominal, echo=TRUE}
+set.seed(123)
+rbinom(1, 1, 0.5)
+```
+El resultado es 0, o el equivalente al fracaso.
+
+No obstante, podemos realizar varios experimentos a la vez, lanzando varias monedas por experimento. En el siguiente ejemplo se realizarán 7 observaciones, lanzando 5 monedas por observación.
+
+```{r binominal2, echo=TRUE}
+set.seed(123)
+rbinom(7, 5, 0.5)
+```
+El resultado se traduce de la siguiente manera. En el primer experimento se generarón 3 eventos de exito. Para el segundo, se obtuvieron 2 éxitos. En el tercero, 4 éxitos y así con cada elemento del vector.
 
 
+
+La probabilidad de éxito puede ser modificada, dando como resultado que un evento tenga mayor probabilidad de ocurrir. En el siguiente ejemplo, se realizaran 10 observaciones, con 1 ensayo cada una, teniendo una tasa de éxito del 30%
+
+
+```{r binominal3, echo=TRUE}
+set.seed(123)
+rbinom(10, 1, 0.3)
+```
+De esta manera, se obtuvieron solo 4 eventos de éxito.
 
 
 
