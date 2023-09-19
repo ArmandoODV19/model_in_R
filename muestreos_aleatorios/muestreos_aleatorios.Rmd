@@ -304,7 +304,7 @@ qnorm(0.9, mean = 161, sd = 7)
 ```
 Si queremos conocer el valor contrario. Cual es la altura del 90% superior de la población se utiliza el argumento lower.tail = FALSE
 
-```{r normal4, echo=TRUE}
+```{r normal5, echo=TRUE}
 qnorm(0.9, mean = 161, sd = 7, lower.tail =FALSE)
 ```
 
