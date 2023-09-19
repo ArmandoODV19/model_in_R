@@ -332,10 +332,38 @@ replicate(10, sample(dado, 5, replace = TRUE) %>%
   theme_bw() + xlab('Promedio') + ylab('Frecuencia')
 ```
 
+100 repeticiones
 
+```{r tlc2, eval=TRUE, message=FALSE}
+set.seed(123)
+replicate(100, sample(dado, 5, replace = TRUE) %>%
+                     mean()) %>% as.data.frame() %>%
+  ggplot(aes(x = .)) + geom_histogram() +
+  theme_bw() + xlab('Promedio') + ylab('Frecuencia')
 
+```
 
+1000 repeticiones
 
+```{r tlc3, eval=TRUE, message=FALSE}
+set.seed(123)
+replicate(1000, sample(dado, 5, replace = TRUE) %>%
+                     mean()) %>% as.data.frame() %>%
+  ggplot(aes(x = .)) + geom_histogram() +
+  theme_bw() + xlab('Promedio') + ylab('Frecuencia')
+```
+
+10000 repeticiones
+
+```{r tlc4, eval=TRUE, message=FALSE}
+set.seed(123)
+replicate(10000, sample(dado, 5, replace = TRUE) %>%
+                     mean()) %>% as.data.frame() %>%
+  ggplot(aes(x = .)) + geom_histogram() +
+  theme_bw() + xlab('Promedio') + ylab('Frecuencia')
+```
+
+De esta manera, al aumentar el número de experimentos la distribución tiende a la normalidad.
 
 
 
