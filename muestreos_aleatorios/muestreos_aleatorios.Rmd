@@ -297,6 +297,16 @@ Para intervalos se resta la probabilidad menor a la probabilidad mayor. Por ejem
 pnorm(157, mean = 161, sd = 7) - pnorm(154, mean = 161, sd = 7)
 ```
 
+Asimismo, con la distribución normal es posible conocer el valor de cierta probabilidad. Por ejemplo, supongamos que nos piden conocer la estatura a la cual podría llegar el 90% de la población. Para esto, se utiliza la función *qnorm()*. Los argumentos son similares, solo que el primer argumento corresponderá a la probabilidad que se desea encontrar.
+
+```{r normal4, echo=TRUE}
+qnorm(0.9, mean = 161, sd = 7)
+```
+Si queremos conocer el valor contrario. Cual es la altura del 90% superior de la población se utiliza el argumento lower.tail = FALSE
+
+```{r normal4, echo=TRUE}
+qnorm(0.9, mean = 161, sd = 7, lower.tail =FALSE)
+```
 
 
 
