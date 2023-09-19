@@ -314,7 +314,9 @@ qnorm(0.1, mean = 161, sd = 7)
 ```
 
 
+## Teorema del límite central
 
+Este teorema describe que la distribución probabilísitca de una muestra se acerca a una distribución normal en cuanto aumenta el número de experimentos. 
 
 
 
