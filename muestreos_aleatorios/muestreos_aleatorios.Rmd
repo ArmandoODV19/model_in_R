@@ -11,7 +11,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Librerías de trabajo
 
-Para esta clase necesitamos cargar las siguientes librerias
+Para esta clase necesitamos cargar las siguientes librerias:
 
 ```{r trabajo, echo=TRUE, warning=FALSE, message=FALSE}
 library(dplyr)
@@ -137,7 +137,7 @@ dummy_data_2
 
 **Nota: es posible combinar métodos de recodificación. Todo depende del objetivo de la limpieza del conjunto de datos**
 
-## Identificando cuartiles
+### Identificando cuartiles
 
 Los cuartiles dividen al conjunto de datos en 4 grupos, a partir de 3 puntos de corte. Primer cuartil (Q1, 25%), segundo cuartil (Q2, 50%), tercer cuartil (Q3, 75%). Derivado de esta información, podemos definir en que sitio se puede encontrar un dato nuevo. Los siguientes son solo ejemplo de cómo realizarlo, ya que pueden existir varias maneras de hacerlo.
 
@@ -195,7 +195,7 @@ head(new_iris %>%
 ## Muestreo
 
 
-Cuando el conjunto de datos es grande y representa un elevado costo económico y de tiempo máquina se recomienda utilizar muestras. Estas deben de ser aleatorias y representativas. Los estadísticos obtenidos se pueden generalizar e inferir el comportamiento de la población. En R, existen dos funciones que permiten realizar este proceso, *sample()* y *slice_sample()*. La función *sample()* forma parte de la paquetería *base*, y se utiliza para encontrar muestras de vectores. Por su parte, la función *slice_sample()* pertenece a la paquetería *dplyr* y funciona para obtener muestras de data frames.
+Cuando el conjunto de datos es grande y representa un elevado costo económico y de tiempo máquina se recomienda utilizar muestras. Estas deben de ser aleatorias y representativas. Los estadísticos obtenidos pueden generalizar e inferir el comportamiento de la población. En R, existen dos funciones que dan parte a este proceso, *sample()* y *slice_sample()*. La función *sample()* forma parte de la paquetería *base*, y se utiliza para encontrar muestras de vectores. Por su parte, la función *slice_sample()* pertenece a la paquetería *dplyr* y funciona para obtener muestras de data frames.
 
 **Nota: debido a que las muestras se realizan "al azar", es necesario definir un parámetro que permita replicar los resultados cuando se trabaja en grupos o para verificar la información. Para esto, se utiliza la función *set.seed()* antes de comenzar a trabajar**
 
@@ -211,7 +211,7 @@ length(vectorcito_muestra)
 
 ```
 
-Por su parte, *slice_sample()*, permite obtener una muestra de un data frame. El siguiente ejemplo extraerá 100 elementos al azar del conjunto de datos iris.
+Por su parte, *slice_sample()*, obtiene una muestra de un data frame. El siguiente ejemplo extraerá 100 elementos al azar del conjunto de datos iris.
 
 
 ```{r muestra2, echo=TRUE}
@@ -225,7 +225,7 @@ summary(iris)
 
 ### Muestreo con reemplazo
 
-Una variante del muestreo aleatorio es el muestreo con reemplazo o *bootstrapping*, en este cada elemento puede ser seleccionado más de una vez. Se suele utilizar cuando nuestra proporción de datos es pequeña, por lo cual se busca enriquecer la información. Sin embargo, tiende a presentar un sesgo, ya que solo depende de nuestros datos de inicio. Para el muestreo con reemplazo se utilizan las funciones *sample()* y *slice_sample()*, solo que se agrega el argumento *replace = TRUE*.
+Una variante del muestreo aleatorio es el muestreo con reemplazo o *bootstrapping*. En este, cada elemento puede ser seleccionado más de una vez. Se suele utilizar cuando nuestra proporción de datos es pequeña, por lo cual se busca enriquecer la información. Sin embargo, tiende a presentar un sesgo, ya que solo depende de nuestros datos de inicio. Para el muestreo con reemplazo se utilizan las funciones *sample()* y *slice_sample()*, agregando el argumento *replace = TRUE*.
 En el primer ejemplo generaremos un vector con numeros del 1 al 100 y se realizará un muestreo con reemplazo de 300 números
 
 ```{r muestra3, echo=TRUE}
@@ -246,15 +246,15 @@ summary(iris_boot)
 
 ```
 
-**Nota: en el muestreo sin reemplazo se genera una muestra a partir de la población. En el muestreo con reemplazo se desarrolla una población teórica derivado de la información de una muestra**
+**Nota: en el muestreo sin reemplazo se genera una muestra a partir de la población. Por su parte, en el muestreo con reemplazo se desarrolla una población teórica derivado de la información de una muestra**
 
 ## Distribución probabilística
 
-Define la probabilidad de que un vento ocurra. La suma de las posibilidades de un evento debe ser igual a 1. Se habla de distribución discreta cuando los eventos son números enteros (1,2,3,4). Por su parte, la distribución contínua hace referencia a valore infinitos (1.1, 1.2, 1.3). Asimismo, en este proyecto hablaremos sobre dos tipos de distribuciones; uniforme y normal.
+Define la probabilidad de que un vento ocurra. La suma de las posibilidades de un evento debe ser igual a 1. Se habla de distribución discreta cuando los eventos son números enteros (1,2,3,4). A su vez, la distribución contínua hace referencia a valore infinitos (1.1, 1.2, 1.3). Asimismo, en este proyecto hablaremos sobre dos tipos de distribuciones; uniforme y normal.
 
 ## Distribución uniforme
 
-En este tipo de probabilidad, todos los eventos tienen las mismas posibilidades de ocurrir, pongamos como ejemplo el lanzar un dado. Cada número tiene 1/6 (~0.16) de probabilidad de ocurrir. Para conocer la probabilidad de cada evento dentro de la distribución uniforme se utiliza la función *punif()* de la paquetería *stats*. Esta paquetería se incluye dentro de los datos por defecto del lenguaje de programación, por lo que no se debe descragar nada.
+En este tipo de probabilidad, todos los eventos tienen las mismas posibilidades de ocurrir, pongamos como ejemplo el lanzar un dado. Cada número tiene 1/6 (~0.16) de probabilidad de ocurrir. Para conocer la probabilidad de cada evento dentro de la distribución uniforme se utiliza la función *punif()* de la paquetería *stats*. Esta paquetería se incluye dentro de los datos por defecto del lenguaje de programación, por lo que no se debe descargar nada.
 
 En el siguiente ejemplo, se calculará cual es la probabilidad de que al lanzar un dado se obtenga un número menor a 5. Los argumentos son lo siguientes. El primero describe el valor del evento que queremos conocer, min se utiliza para definir el evento mínimo que puede ocurrir, en este caso, no lanzar el dado. Max, por su parte, es el valor máximo que puede presentarse, siendo 6. 
 
@@ -278,7 +278,7 @@ punif(5, min = 0, max = 6) - punif(3, min = 0, max = 6)
 
 ## Distribución normal
 
-Por su parte, la distribución normal, no sigue un patrón uniforme. Existen diferentes eventos con posibilidades distintas. Al igual que la distribución uniforme el total de todos los eventos es igual a 1. Esta distribución se caracyeriza por tener una forma de campana, la cual es simétrica. A su vez, se basa en la media aritmética y en la desviación estándar. Para calcular la distribución normal de un evento probabilístico se utiliza la función *pnorm()* de la paquetería *stats*. En el siguiente ejemplo se calculará la probabilidad de encontrar a una persona que mida menos de 154 cm dada una pobalción con una media aritmética de 161 cm y una desviación estándar de 7 cm.
+Por su parte, la distribución normal, no sigue un patrón uniforme. Existen diferentes eventos con posibilidades distintas. Al igual que la distribución uniforme el total de todos los eventos es igual a 1. Esta distribución se caracteriza por tener una forma de campana, la cual es simétrica. A su vez, se basa en la media aritmética y en la desviación estándar. Para calcular la distribución normal de un evento probabilístico se utiliza la función *pnorm()* de la paquetería *stats*. En el siguiente ejemplo se calculará la probabilidad de encontrar a una persona que mida menos de 154 cm dada una población con una media aritmética de 161 cm y una desviación estándar de 7 cm.
 
 ```{r normal, echo=TRUE}
 pnorm(154, mean = 161, sd = 7)
@@ -368,7 +368,7 @@ De esta manera, al aumentar el número de experimentos la distribución tiende a
 
 ## Distribución binominal
 
-La distribución binominal describre un evento con dos posibles resultados. Por ejemplo, la probabilidad de éxito o fracaso. O la probabilidad de obtener sol o águila al lanzar una moneda. En R se utiliza la función *rbinom()* de la paquetería *stats* para calcular esta distribución. Esta función toma como argumentos el numero de observasiones, numero de ensayos y probabilidad de éxito, en ese orden. Por ejemplo, se realizará un experimento, lanzando una moneda, la cual tiene 50% de probabilidad de caer águila (éxito) o sol (fracaso).
+La distribución binominal describe un evento con dos posibles resultados. Por ejemplo, la probabilidad de éxito o fracaso. O la probabilidad de obtener sol o águila al lanzar una moneda. En R se utiliza la función *rbinom()* de la paquetería *stats* para calcular esta distribución. Esta función toma como argumentos el numero de observasiones, numero de ensayos y probabilidad de éxito, en ese orden. Por ejemplo, se realizará un experimento, lanzando una moneda, la cual tiene 50% de probabilidad de caer águila (éxito) o sol (fracaso).
 
 ```{r binominal, echo=TRUE}
 set.seed(123)
@@ -382,7 +382,7 @@ No obstante, podemos realizar varios experimentos a la vez, lanzando varias mone
 set.seed(123)
 rbinom(7, 5, 0.5)
 ```
-El resultado se traduce de la siguiente manera. En el primer experimento se generarón 3 eventos de exito. Para el segundo, se obtuvieron 2 éxitos. En el tercero, 4 éxitos y así con cada elemento del vector.
+El resultado se traduce de la siguiente manera. En el primer experimento se generaron 3 eventos de exito. Para el segundo, se obtuvieron 2 éxitos. En el tercero, 4 éxitos y así con cada elemento del vector.
 
 
 
