@@ -213,15 +213,15 @@ replicate(10, sample(dado, 5, replace = TRUE) %>%
 
 replicate(100, sample(dado, 5, replace = TRUE) %>%
             mean()) %>% as.data.frame() %>%
-  ggplot(aes(x = .)) + geom_histogram()
+  ggplot(aes(x = .)) + geom_histogram(bins = 10)
 
 replicate(1000, sample(dado, 5, replace = TRUE) %>%
             mean()) %>% as.data.frame() %>%
-  ggplot(aes(x = .)) + geom_histogram()
+  ggplot(aes(x = .)) + geom_histogram(bins = 30)
 
-replicate(1000, sample(dado, 5, replace = TRUE) %>%
+replicate(10000, sample(dado, 5, replace = TRUE) %>%
             mean()) %>% as.data.frame() %>%
-  ggplot(aes(x = .)) + geom_histogram()
+  ggplot(aes(x = .)) + geom_histogram(bins = 30)
 
 
 ### la distribucion binominal
