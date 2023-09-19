@@ -395,5 +395,7 @@ rbinom(10, 1, 0.3)
 ```
 De esta manera, se obtuvieron solo 4 eventos de éxito.
 
+## ¿Qué distribución seguir?
+
 
 
