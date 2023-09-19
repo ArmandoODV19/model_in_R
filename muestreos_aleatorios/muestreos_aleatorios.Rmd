@@ -366,6 +366,8 @@ replicate(10000, sample(dado, 5, replace = TRUE) %>%
 De esta manera, al aumentar el número de experimentos la distribución tiende a la normalidad.
 
 
+## Distribución binominal
+
 
 
 
