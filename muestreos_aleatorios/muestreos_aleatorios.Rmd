@@ -316,7 +316,29 @@ qnorm(0.1, mean = 161, sd = 7)
 
 ## Teorema del límite central
 
-Este teorema describe que la distribución probabilísitca de una muestra se acerca a una distribución normal en cuanto aumenta el número de experimentos. 
+Este teorema describe que la distribución probabilísitca de una muestra se acerca a una distribución normal en cuanto aumenta el número de experimentos. Como ejemplo, se generará un dado virtual, con valores del 1 al 6. Posteriormente, se simularán 5 lanzamientos con reemplazo y se obtendrá el valor promedio de estos 5 lanzamientos. Por último, se simulará este proceso 10, 100, 1000 y 10000 veces.
+
+```{r dado, echo=TRUE}
+dado <- seq(1,6,1)
+```
+
+10 repeticiones
+
+```{r tlc, eval=TRUE, message=FALSE}
+set.seed(123)
+replicate(10, sample(dado, 5, replace = TRUE) %>%
+                     mean()) %>% as.data.frame() %>%
+  ggplot(aes(x = .)) + geom_histogram() +
+  theme_bw() + xlab('Promedio') + ylab('Frecuencia')
+```
+
+
+
+
+
+
+
+
 
 
 
