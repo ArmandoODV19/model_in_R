@@ -307,6 +307,11 @@ Si queremos conocer el valor contrario. Cual es la altura del 90% superior de la
 ```{r normal5, echo=TRUE}
 qnorm(0.9, mean = 161, sd = 7, lower.tail =FALSE)
 ```
+**Nota: este proceso es similar a econtrar el restante a la unidad, o el 10%**
+
+```{r normal6, echo=TRUE}
+qnorm(0.1, mean = 161, sd = 7)
+```
 
 
 
