@@ -395,7 +395,52 @@ rbinom(10, 1, 0.3)
 ```
 De esta manera, se obtuvieron solo 4 eventos de éxito.
 
-## ¿Qué distribución seguir?
+## ¿Cómo sé que distribución seguir?
+
+Antes de aplicar cualquier modelo de distribución debemos realizarnos las siguentes preguntas. ¿Cuántos resultados posibles tenemos? ¿Todas las respuestas tienen la misma probabilidad de ocurrir? ¿Cómo se distribuyen los datos?
+
+Esta última pregunta se suele responder al graficar la información, por lo general se suele utilizar un histograma o un gráfico de área. Los siguientes ejemplos muestran la distribución de los datos del dataset iris.
+
+Histograma de longitud de sépalo
+
+```{r hist, eval=TRUE, message=FALSE}
+ggplot(iris, aes(Sepal.Length)) +
+  geom_histogram() +
+  theme_bw()
+```
+
+Histograma ancho de sépalo
+
+```{r hist2, eval=TRUE, message=FALSE}
+ggplot(iris, aes(Sepal.Width)) +
+  geom_histogram() +
+  theme_bw()
+```
+
+Histograma largo de pétalo
+
+```{r hist3, eval=TRUE, message=FALSE}
+ggplot(iris, aes(Petal.Length)) +
+  geom_histogram() +
+  theme_bw()
+```
+
+Histograma ancho de pétalo
+
+```{r hist4, eval=TRUE, message=FALSE}
+ggplot(iris, aes(Petal.Width)) +
+  geom_histogram() +
+  theme_bw()
+```
+
+
+
+
+
+
+
+
+
 
 
 
