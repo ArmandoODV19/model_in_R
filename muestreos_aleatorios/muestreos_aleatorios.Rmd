@@ -270,13 +270,35 @@ punif(5, min = 0, max = 6, lower.tail = FALSE)
 ```
 
 
-Para rangos, se resta la probabilidad menor a la probabilidad mayor. En el siguiente ejemplo obtendremos la probabilidad de obtener un número entre 3 y 5 al lanzar un dado.
+Para rangos, se resta la probabilidad menor a la probabilidad mayor. En el siguiente ejemplo obtendremos la probabilidad de sacar un número entre 3 y 5 al lanzar un dado.
 
 ```{r uniforme3, echo=TRUE}
 punif(5, min = 0, max = 6) - punif(3, min = 0, max = 6)
 ```
 
 ## Distribución normal
+
+Por su parte, la distribución normal, no sigue un patrón uniforme. Existen diferentes eventos con posibilidades distintas. Al igual que la distribución uniforme el total de todos los eventos es igual a 1. Esta distribución se caracyeriza por tener una forma de campana, la cual es simétrica. A su vez, se basa en la media aritmética y en la desviación estándar. Para calcular la distribución normal de un evento probabilístico se utiliza la función *pnorm()* de la paquetería *stats*. En el siguiente ejemplo se calculará la probabilidad de encontrar a una persona que mida menos de 154 cm dada una pobalción con una media aritmética de 161 cm y una desviación estándar de 7 cm.
+
+```{r normal, echo=TRUE}
+pnorm(154, mean = 161, sd = 7)
+```
+
+
+De la misma manera, para conocer el otro extremo de la probabilidad se utiliza el argumento lower.tail = FALSE. En el siguiente ejemplo conoceremos la probabilidad de encontrar a una persona con una altura mayor a 154 cm.
+
+```{r normal2, echo=TRUE}
+pnorm(154, mean = 161, sd = 7, lower.tail = FALSE)
+```
+
+Para intervalos se resta la probabilidad menor a la probabilidad mayor. Por ejemplo, encontrar la probabilidad de que una persona tenga una altura entre 154 y 157 cm.
+
+```{r normal3, echo=TRUE}
+pnorm(157, mean = 161, sd = 7) - pnorm(154, mean = 161, sd = 7)
+```
+
+
+
 
 
 
