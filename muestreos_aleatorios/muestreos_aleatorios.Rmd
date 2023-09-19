@@ -1,5 +1,5 @@
 ---
-title: 'Modelos de estadística clásica: muestreos aleatorios'
+title: 'Modelos de estadística clásica: muestreos aleatorios y distribuciones probabilísticas'
 author: "Armando Ocampo"
 
 output: pdf_document
@@ -433,7 +433,7 @@ ggplot(iris, aes(Petal.Width)) +
   theme_bw()
 ```
 
-
+Este primer acercamiento a los datos permite definir si hay datos extremos, agrupamientos, distribución de la información. Dando parte a la transformación de los datos y posteriormente elegir el modelo estadístico adecuado.
 
 
 
