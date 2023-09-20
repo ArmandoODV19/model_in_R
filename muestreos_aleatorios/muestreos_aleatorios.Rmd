@@ -366,9 +366,9 @@ replicate(10000, sample(dado, 5, replace = TRUE) %>%
 De esta manera, al aumentar el número de experimentos la distribución tiende a la normalidad.
 
 
-## Distribución binominal
+## Distribución binomial
 
-La distribución binominal describe un evento con dos posibles resultados. Por ejemplo, la probabilidad de éxito o fracaso. O la probabilidad de obtener sol o águila al lanzar una moneda. En R se utiliza la función *rbinom()* de la paquetería *stats* para calcular esta distribución. Esta función toma como argumentos el numero de observasiones, numero de ensayos y probabilidad de éxito, en ese orden. Por ejemplo, se realizará un experimento, lanzando una moneda, la cual tiene 50% de probabilidad de caer águila (éxito) o sol (fracaso).
+La distribución binomial describe un evento con dos posibles resultados. Por ejemplo, la probabilidad de éxito o fracaso. O la probabilidad de obtener sol o águila al lanzar una moneda. En R se utiliza la función *rbinom()* de la paquetería *stats* para calcular esta distribución. Esta función toma como argumentos el numero de observasiones, numero de ensayos y probabilidad de éxito, en ese orden. Por ejemplo, se realizará un experimento, lanzando una moneda, la cual tiene 50% de probabilidad de caer águila (éxito) o sol (fracaso).
 
 ```{r binominal, echo=TRUE}
 set.seed(123)
