@@ -250,7 +250,7 @@ summary(iris_boot)
 
 ## Distribución probabilística
 
-Define la probabilidad de que un vento ocurra. La suma de las posibilidades de un evento debe ser igual a 1. Se habla de distribución discreta cuando los eventos son números enteros (1,2,3,4). A su vez, la distribución contínua hace referencia a valore infinitos (1.1, 1.2, 1.3). Asimismo, en este proyecto hablaremos sobre dos tipos de distribuciones; uniforme y normal.
+Define la probabilidad de que un evento ocurra. La suma de las posibilidades de un evento debe ser igual a 1. Se habla de distribución discreta cuando los eventos son números enteros (1,2,3,4). A su vez, la distribución contínua hace referencia a valore infinitos (1.1, 1.2, 1.3). Asimismo, en este proyecto hablaremos sobre dos tipos de distribuciones; uniforme y normal.
 
 ## Distribución uniforme
 
