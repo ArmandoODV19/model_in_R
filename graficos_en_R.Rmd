@@ -84,7 +84,43 @@ ggplot(iris, aes(x = Sepal.Length, y = Petal.Length))+
   theme(plot.title = element_text(hjust = 0.5)) #centrar título
 ```
 
+Por su parte, el nombre de los ejes se modifican con las funciones  *xlab()* y *ylab()*.
 
+```{r grafico9, echo=TRUE}
+ggplot(iris, aes(x = Sepal.Length, y = Petal.Length))+
+	geom_point()+
+  ggtitle('Gráfico de dispersión')+
+  theme(plot.title = element_text(hjust = 0.5))+
+  xlab('Longitud de Sépalo')+
+  ylab('Longitud de Pétalo')
+  
+```
+
+El fondo del gráfico se modica utilizando la función *theme_ ()*. En el siguiente ejemplo, se agregará un fondo blanco al gráfico, con la función *theme_bw()*
+
+```{r grafico10, echo=TRUE}
+ggplot(iris, aes(x = Sepal.Length, y = Petal.Length))+
+	geom_point()+
+  ggtitle('Gráfico de dispersión')+
+  theme_bw()+
+  theme(plot.title = element_text(hjust = 0.5))+
+  xlab('Longitud de Sépalo')+
+  ylab('Longitud de Pétalo')
+  
+```
+
+Combinando todo
+
+```{r grafico11, echo=TRUE}
+ggplot(iris, aes(x = Sepal.Length, y = Petal.Length, color=Species))+
+	geom_point(shape=17)+
+  ggtitle('Gráfico de dispersión')+
+  theme_bw() +
+  theme(plot.title = element_text(hjust = 0.5))+
+  xlab('Longitud de Sépalo')+
+  ylab('Longitud de Pétalo')
+  
+```
 
 
 
