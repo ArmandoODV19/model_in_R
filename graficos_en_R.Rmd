@@ -17,3 +17,44 @@ En R, existen diferentes paqueterías para realizar gráficos. En esta clase uti
 library(ggplot2)
 ```
 
+para realizar un gráfico es necesario tres elementos. El conjunto de datos, los ejes (en R se define cómo aesthetic) y el tipo de gráfico. A continuación definiremos un gráfico de dispersión con información de longitud de sépalo y pétalo presente en el dataset *iris*.
+
+```{r grafico1, echo=TRUE}
+ggplot(iris, aes(x = Sepal.Length, y = Petal.Length)) +
+	geom_point()
+
+```
+
+A continuación, describiremos cada uno de los tres elementos. La función principal es *ggplot()*, como primer argemento se escribe el nombre del dataset que vamos a  utilizar. Posteriormente, la función *aes()* para definir la información  presente en cada eje. Para continuar con el gráfico se agrega el signo '+', como siguiente elemento se añade el tipo de gráfico con la función *geom_*()*. Al realizar un gráfico de puntos utilizamos *geom_point()*.
+
+El tipo de gráfico a utilizar depende de las variables de trabajo. Por ejemplo, para  los histogramas solo necesitamos definir una variable en el eje de las equis.
+
+```{r grafico2, echo=TRUE, message=FALSE, warning=FALSE}
+ggplot(iris, aes(x = Sepal.Length)) +
+	geom_histogram()
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
