@@ -11,13 +11,13 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Características principales
 
-En R, existen diferentes paqueterías para realizar gráficos. En esta clase utilizaremos la paquetería *ggplot2*, la cual permite realizar gráficos con mejor estética. Otra de las razones es que al pertenecer al conjunto de paqueterías de *tidyverse*, permite colocarse en flujos de trabajo.
+En R, existen diferentes paqueterías para realizar gráficos. En esta clase utilizaremos la paquetería *ggplot2*, debido a la estética y manejo del lenguaje al momento de generar gráficos. Otra de las razones es que al pertenecer al conjunto de paqueterías de *tidyverse*, permite generar flujos de trabajo. Cargaremos la librería antes de comenzar a trabajar.
 
 ```{r librerias, echo=TRUE}
 library(ggplot2)
 ```
 
-para realizar un gráfico es necesario tres elementos. El conjunto de datos, los ejes (en R se define cómo aesthetic) y el tipo de gráfico. A continuación definiremos un gráfico de dispersión con información de longitud de sépalo y pétalo presente en el dataset *iris*.
+Para realizar un gráfico son necesarios tres elementos. El conjunto de datos, los ejes (en R se define cómo aesthetic) y el tipo de gráfico. A continuación definiremos un gráfico de dispersión con información de longitud de sépalo y pétalo presente en el dataset *iris*.
 
 ```{r grafico1, echo=TRUE}
 ggplot(iris, aes(x = Sepal.Length, y = Petal.Length)) +
@@ -25,7 +25,9 @@ ggplot(iris, aes(x = Sepal.Length, y = Petal.Length)) +
 
 ```
 
-A continuación, describiremos cada uno de los tres elementos. La función principal es *ggplot()*, como primer argemento se escribe el nombre del dataset que vamos a  utilizar. Posteriormente, la función *aes()* para definir la información  presente en cada eje. Para continuar con el gráfico se agrega el signo '+', como siguiente elemento se añade el tipo de gráfico con la función *geom_*()*. Al realizar un gráfico de puntos utilizamos *geom_point()*.
+Ahora, describiremos cada uno de los tres elementos. La función principal es *ggplot()*, como primer argumento se escribe el nombre del dataset que vamos a  utilizar. Posteriormente, la función *aes()* define la información  presente en cada eje. Para continuar con el gráfico se agrega el signo '+', como siguiente elemento se añade el tipo de gráfico con la función *geom_x()*. Para realizar un gráfico de puntos utilizamos la función *geom_point()*.
+
+
 
 El tipo de gráfico a utilizar depende de las variables de trabajo. Por ejemplo, para  los histogramas solo necesitamos definir una variable en el eje de las equis.
 
@@ -40,32 +42,32 @@ ggplot(iris, aes(x = Sepal.Length)) +
 El color de los elementos se puede definir de dos maneras. De forma general o agregando una terecera variable. Para este último caso el color se define dentro de la estética añadiendo la variable de la cual se va a agregar el color. En el siguiente ejemplo, se retomará el gráfico de puntos y se coloreará cada punto acorde al tipo de especie.
 
 ```{r grafico3, echo=TRUE}
-ggplot(iris, aes(x = Sepal.Length, y = Petal.Length, color =Species))+
+ggplot(iris, aes(x = Sepal.Length, y = Petal.Length,color =Species))+
 	geom_point() 
 ```
 
-En caso de querer colorear de manera general cada elemento, es necesario colocar el argumento color = dentro de la función *geom_*()*. En el siguiente ejemplo, retomaremos el gráfico de puntos y se coloreará cada elemnto de manera general.
+En caso de querer colorear de manera general cada elemento, es necesario colocar el argumento *color =* dentro de la función *geom_x()*. En el siguiente ejemplo, retomaremos el gráfico de puntos y se coloreará cada elemento de manera general.
 
 ```{r grafico4, echo=TRUE}
 ggplot(iris, aes(x = Sepal.Length, y = Petal.Length))+
 	geom_point(color = 'forestgreen') 
 ```
 
-Para el gráfico de puntos, tambiés es posible modifcar la forma. De la misma manera, la modificación puede ser por variable o general. En el siguiente ejemplo se modificará la forma acorde al tipo de especie.
+Para el gráfico de puntos, también es posible modifcar la forma. De la misma manera, el cambio puede ser tomando una variable o general. En el siguiente ejemplo se modificará la forma acorde al tipo de especie.
 
 ```{r grafico5, echo=TRUE}
 ggplot(iris, aes(x = Sepal.Length, y = Petal.Length, shape= Species))+
 	geom_point() 
 ```
 
-A continuación, el cambio de forma se realizará de forma global.
+A continuación, el cambio de forma se realizará de manera global.
 
 ```{r grafico6, echo=TRUE}
 ggplot(iris, aes(x = Sepal.Length, y = Petal.Length))+
 	geom_point(shape = 17)
 ```
 
-Los gráficos de ggplot permiten combinar estas características. Teniendo puntos con una sola  forma y colores diferentes acorde a la especie.
+Los gráficos de *ggplot* permiten combinar estas características. Teniendo puntos con una sola  forma y colores diferentes acorde a la especie.
 
 ```{r grafico7, echo=TRUE}
 ggplot(iris, aes(x = Sepal.Length, y = Petal.Length,color= Species))+
@@ -96,7 +98,7 @@ ggplot(iris, aes(x = Sepal.Length, y = Petal.Length))+
   
 ```
 
-El fondo del gráfico se modica utilizando la función *theme_ ()*. En el siguiente ejemplo, se agregará un fondo blanco al gráfico, con la función *theme_bw()*
+El fondo del gráfico se modica utilizando la función *theme_x()*. En el siguiente ejemplo, se agregará un fondo blanco al gráfico, con la función *theme_bw()*
 
 ```{r grafico10, echo=TRUE}
 ggplot(iris, aes(x = Sepal.Length, y = Petal.Length))+
