@@ -73,6 +73,17 @@ ggplot(iris, aes(x = Sepal.Length, y = Petal.Length,color= Species))+
 ```
 
 
+### Títulos
+
+El título del gráfico se agrega utilizando la función *ggtitlte()*. Dentro de la función se coloca el conjunto de caracteres entre comillas.
+
+```{r grafico8, echo=TRUE}
+ggplot(iris, aes(x = Sepal.Length, y = Petal.Length))+
+	geom_point()+
+  ggtitle('Gráfico de dispersión')+
+  theme(plot.title = element_text(hjust = 0.5)) #centrar título
+```
+
 
 
 
