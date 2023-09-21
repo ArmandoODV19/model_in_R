@@ -11,3 +11,9 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Características principales
 
+En R, existen diferentes paqueterías para realizar gráficos. En esta clase utilizaremos la paquetería *ggplot2*, la cual permite realizar gráficos con mejor estética. Otra de las razones es que al pertenecer al conjunto de paqueterías de *tidyverse*, permite colocarse en flujos de trabajo.
+
+```{r librerias, echo=TRUE}
+library(ggplot2)
+```
+
