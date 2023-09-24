@@ -45,12 +45,29 @@ lm(formula = weight~Diet, data = ChickWeight)
 
 
 
+## estrayendo i9nfo de modelo
+print(lm(formula = weight~Diet, data = ChickWeight))
 
+summary(lm(formula = weight~Diet, data = ChickWeight))
 
+library(broom)
+tidy(lm(formula = weight~Diet, data = ChickWeight))
 
+# extraccion de coeficientes
+coef(lm(formula = weight~Diet, data = ChickWeight))
 
+# intervalos de confianza
+confint(lm(formula = weight~Diet, data = ChickWeight))
 
+# prediccion
+library(dplyr)
+new <- ChickWeight %>%
+  select(weight, Diet) %>%
+  slice_sample(prop = 0.2)
 
+new2 <- data.frame(weight = c(55, 70, 84),
+                   Diet = as.factor(c(1, 2, 3)))
 
-
+predict(lm(formula = weight~Diet, data = ChickWeight), new)
+predict(lm(formula = weight~Diet, data = ChickWeight), new2)
 
