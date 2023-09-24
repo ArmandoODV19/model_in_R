@@ -69,5 +69,8 @@ new2 <- data.frame(weight = c(55, 70, 84),
                    Diet = as.factor(c(1, 2, 3)))
 
 predict(lm(formula = weight~Diet, data = ChickWeight), new)
-predict(lm(formula = weight~Diet, data = ChickWeight), new2)
+predict(lm(formula = weight~Diet, data = ChickWeight), new2,
+        type = 'response')
 
+
+### regresion logistica
