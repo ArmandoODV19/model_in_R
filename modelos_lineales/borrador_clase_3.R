@@ -87,6 +87,6 @@ predict(lm(formula = weight~Diet, data = ChickWeight), new2,
 # para informacion del modelo tambien se utliza
 # print(), summary(), tidy()
 
-
+### graficando modelos
 
 
