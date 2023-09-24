@@ -89,4 +89,20 @@ predict(lm(formula = weight~Diet, data = ChickWeight), new2,
 
 ### graficando modelos
 
+# poisson
+# poisson_out <- glm(x~y, family = 'poisson')
+# tidy(poisson_out, exponentiate = TRUE)
+
+library(ggplot2)
+
+ggplot(data = dat, aes(x = dose, y = cells)) +
+  geom_jitter(width = 0.05, height = 0.05) +
+  geom_smooth(method = 'glm', method.args = list(family = 'poisson'))
+
+# regresion logistica
+
+
+
+
+
 
