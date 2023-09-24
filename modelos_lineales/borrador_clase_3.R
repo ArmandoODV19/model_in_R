@@ -108,9 +108,12 @@ glm_out <- glm(y~x, family = 'binomial')
 tidy(glm_out, exponentiate = TRUE, conf.int = TRUE)
 
 
+# multiple logistic regression
+glm(formula = Bus~CommuteDays + MilesOneWay,
+    family = 'binomial', data = bus)
 
-
-
+# correlacion entre variables
+cor()
 
 
 
