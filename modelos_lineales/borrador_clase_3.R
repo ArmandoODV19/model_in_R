@@ -99,7 +99,23 @@ ggplot(data = dat, aes(x = dose, y = cells)) +
   geom_jitter(width = 0.05, height = 0.05) +
   geom_smooth(method = 'glm', method.args = list(family = 'poisson'))
 
+
+
 # regresion logistica
+
+# extraccion de intervalos de confianza
+glm_out <- glm(y~x, family = 'binomial')
+tidy(glm_out, exponentiate = TRUE, conf.int = TRUE)
+
+
+
+
+
+
+
+
+
+
 
 
 
