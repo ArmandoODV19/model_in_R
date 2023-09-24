@@ -74,3 +74,19 @@ predict(lm(formula = weight~Diet, data = ChickWeight), new2,
 
 
 ### regresion logistica
+
+# datos binominales
+
+
+# logit(p) = B0 + B1X + E
+
+# se usa la funcion glm(), solo se agrega el argumento
+# family = 'binomial'
+# glm(y~x, data = dat, family = 'binomial')
+
+# para informacion del modelo tambien se utliza
+# print(), summary(), tidy()
+
+
+
+
