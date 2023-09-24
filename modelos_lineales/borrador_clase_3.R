@@ -13,6 +13,7 @@
 # solo examina modelos lineales
 # asume que los residuales se distribuyen de manera normal
 # funcionan mejor con datos continuos
+# limitantes: count data y datos binarios
 
 library(datasets)
 View(ChickWeight)
@@ -24,5 +25,32 @@ lm(formula = weight~Diet, data = ChickWeight)
 # glm
 # funciones no lineales
 # se utiliza la funcion glm()
-# glm( y~x, data=df, family='gaussian')
+# glm( y~x, data=df, family='gaussian') similar a lm()
+
+
+### poisson
+
+# lamba para media y varianza
+# modelar el numero de goles en un partido o en una temporada
+
+# se calcula con la funcion dpois()
+# dpois(x = ..., lambda = ...)
+# conteo discreto
+# definior area y tiempo
+# los coeficientes en este modelo estan en escala logaritmica
+# no se usa con valores negativos o decimales
+
+# usando glm()
+# glm( y~x, data=df, family='poisson')
+
+
+
+
+
+
+
+
+
+
+
 
