@@ -126,10 +126,74 @@ library(corrplot)
 library(ggplot2)
 library(scales)
 library(ggpubr)
+library(broom)
 
 # cargando data
 
+vacunas_df <- read_csv('data/dataset_vacunas.csv')
+
+# generando variable sunicas de colnames
+
+attach(vacunas_df)
+
+# generando modelo lineal
+
+gdp_vs_life <- lm(Life_expectancy~GDP, data = vacunas_df)
+
+# extrayendo info de modelo
+summary(gdp_vs_life)
+confint(gdp_vs_life)
+tidy(gdp_vs_life)
+
+# graficando modelo
+
+ggplot(vacunas_df, aes(x = GDP, y = Life_expectancy)) +
+  geom_point()+
+  geom_smooth(method = 'glm')+
+  xlab('Producto Interno Bruto')+
+  ylab('Esperanza de vida')+
+  theme_bw()
+
+# tuneando gráfico
 
 
+ggplot(vacunas_df, aes(x = GDP, y = Life_expectancy)) +
+  geom_point(size = 7, color = 'dodgerblue', alpha = 0.7)+
+  geom_smooth(method = 'glm', color = 'azure4')+
+  xlab('Producto Interno Bruto')+
+  ylab('Esperanza de vida')+
+  theme_bw()
+
+# visualizando distribución de los datos de gdp
+
+ggplot(vacunas_df, aes(GDP)) +
+  geom_histogram()
+
+# transformando los datos
+
+ggplot(vacunas_df, aes(log(GDP)))+
+  geom_histogram()
+
+# utilizando transformacion logaritmica
 
 
+gdp_vs_life_log <- lm(Life_expectancy~log(GDP), data = vacunas_df)
+
+# extrayendo info de modelo
+summary(gdp_vs_life_log)
+confint(gdp_vs_life_log)
+tidy(gdp_vs_life_log)
+
+# comparando modelos
+tidy(gdp_vs_life)
+tidy(gdp_vs_life_log)
+
+
+# graficando
+
+ggplot(vacunas_df, aes(x = log(GDP), y = Life_expectancy)) +
+  geom_point(size = 7, color = 'dodgerblue', alpha = 0.7)+
+  geom_smooth(method = 'glm', color = 'azure4')+
+  xlab('Producto Interno Bruto')+
+  ylab('Esperanza de vida')+
+  theme_bw()
