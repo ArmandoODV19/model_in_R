@@ -227,3 +227,33 @@ modelo_multivariable <- lm(formula = Life_expectancy~.,
 summary(modelo_multivariable)
 confint(modelo_multivariable)
 tidy(modelo_multivariable)
+
+# correlacion multiple metodo de person
+# tambien puede realizarse kendall o spearman
+
+# person
+
+correlaciones <- cor(data_vacunas_2)
+
+corrplot(correlaciones, method = 'circle', tl.col = 'black')
+
+# kendall
+
+correlaciones_kendall <- cor(data_vacunas_2, method = 'kendall')
+
+corrplot(correlaciones_kendall, method = 'circle', tl.col = 'black')
+
+
+# spearman
+
+correlaciones_spearman <- cor(data_vacunas_2, method = 'spearman')
+
+corrplot(correlaciones_spearman, method = 'circle', tl.col = 'black')
+
+
+
+### regresion logisitca
+
+
+
+### prediccion
