@@ -116,7 +116,7 @@ glm(formula = Bus~CommuteDays + MilesOneWay,
 cor()
 
 
-
+#### borrador clase
 
 
 
