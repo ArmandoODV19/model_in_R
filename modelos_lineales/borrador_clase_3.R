@@ -197,3 +197,33 @@ ggplot(vacunas_df, aes(x = log(GDP), y = Life_expectancy)) +
   xlab('Producto Interno Bruto')+
   ylab('Esperanza de vida')+
   theme_bw()
+
+### regresion multiple
+
+# explica la relacion de la variable y con varias
+# variables explicativas
+# de la misma manera se utiliza la funcion lm()
+# se agregan las variables con el signo de +
+# modelo de esperanza de vida vs gdp + bcg + Pol3
+
+life_vs_bcg_gdp_pol <- lm(formula = Life_expectancy~GDP+BCG+Pol3,
+                          data = vacunas_df)
+
+# extraccion de info
+summary(life_vs_bcg_gdp_pol)
+confint(life_vs_bcg_gdp_pol)
+tidy(life_vs_bcg_gdp_pol)
+
+# esperanza de vida contra todo el dataset
+# se agrega ~.
+# quitando entidad y codigo
+
+data_vacunas_2 <- vacunas_df %>%
+  select(-Entity, -Code)
+
+modelo_multivariable <- lm(formula = Life_expectancy~.,
+                           data = data_vacunas_2)
+
+summary(modelo_multivariable)
+confint(modelo_multivariable)
+tidy(modelo_multivariable)
