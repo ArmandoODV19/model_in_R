@@ -118,8 +118,16 @@ cor()
 
 #### borrador clase
 
+# librerias de trabajo
 
+library(readr)
+library(dplyr)
+library(corrplot)
+library(ggplot2)
+library(scales)
+library(ggpubr)
 
+# cargando data
 
 
 
