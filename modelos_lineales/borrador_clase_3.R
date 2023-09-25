@@ -254,6 +254,12 @@ corrplot(correlaciones_spearman, method = 'circle', tl.col = 'black')
 
 ### regresion logisitca
 
+# llamando dataset
+
+cancer_df <- readRDS('data/cancer_data.RDS')
+
+summary(cancer_df)
+
 
 
 ### prediccion
