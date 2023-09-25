@@ -221,7 +221,7 @@ tidy(life_vs_bcg_gdp_pol)
 data_vacunas_2 <- vacunas_df %>%
   select(-Entity, -Code)
 
-modelo_multivariable <- lm(formulaLife_expectancy~., =
+modelo_multivariable <- lm(formula=Life_expectancy~.,
                            data = data_vacunas_2)
 
 summary(modelo_multivariable)
