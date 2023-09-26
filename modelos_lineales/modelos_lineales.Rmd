@@ -11,7 +11,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Librerias de trabajo
 
-Antes de comenzar a trabajar, te recomiendo abrir las siguientes librerias. Si no cuentas con alguna de ellas es posible instalarla mediante la función *install.packages()*
+Antes de comenzar a trabajar, te recomiendo abrir las siguientes librerias. Si no cuentas con alguna de ellas es posible instalarlas mediante la función *install.packages()*
 
 ```{r librerias, echo=TRUE, message=FALSE, warning=FALSE}
 library(readr)
@@ -27,7 +27,7 @@ Asimismo, se agregan dos conjuntos de datos. Los cuales debes descargar y guarda
 
 ## Modelos lineales
 
-Para este apartado utilizaremos el conjunto de datos de vacunación obtenido del portal **[Our World in Data](https://ourworldindata.org/vaccination)**, el cual se conforma por información de 171 países, agregando las variables esperanza de vida, producto interno bruto *per capita* y porcentaje de vacunación de 13 inmunizaciones. Este dataset tiene actualización al 31 de diciembre de 2019. El formato es un archivo de valores separados por coma (*comma separate values, csv*). Antes de comenzar, lo llamaremos a nuestro ambiente de trabajo.
+Para este apartado utilizaremos el conjunto de datos de vacunación obtenido del portal **[Our World in Data](https://ourworldindata.org/vaccination)**, el cual se conforma por información de 171 países, agregando las variables esperanza de vida, producto interno bruto (PIB) *per capita* y porcentaje de vacunación de 13 inmunizaciones. Este dataset tiene actualización al 31 de diciembre de 2019. El formato es un archivo de valores separados por coma (*comma separate values, csv*). Antes de comenzar, lo llamaremos a nuestro ambiente de trabajo.
 
 ```{r vacunas, echo=TRUE, message=FALSE, warning=FALSE}
 vacunas_df <- read_csv('../data/dataset_vacunas.csv')
@@ -39,7 +39,7 @@ Para facilitar el uso de las variables del conjunto de datos utilizaremos la fun
 attach(vacunas_df)
 ```
 
-Los modelos lineales describen la relación de la variable respuesta (dependiente) y la(s) variable(s) explicativa(s) (independiente). Esta relación puede ser positiva, negativa o estar ausente. En R, este tipo de modelos se realiza mediante la función *lm()* de la paquetería *stats*. Los argumentos que se colocan son los siguientes. *formula = y~x*, describe la relación de la variable "y" con la variable "x" (*y~x*, este elemento indica, en medida que x explica y). El siguiente argumento, *data=* detalla el conjunto de datos a utilizar. En el siguiente ejemplo se creará un modelo lineal que exlique la relación de la esperanza de vida con el producto interno bruto en el conjunto de datos de vacunas.
+Los modelos lineales describen la relación de la variable respuesta (dependiente) y la(s) variable(s) explicativa(s) (independiente). Esta relación puede ser positiva, negativa o estar ausente. En R, este tipo de modelos se realiza mediante la función *lm()* de la paquetería *stats*. Los argumentos que se colocan son los siguientes. *formula = y~x*, describe la relación de la variable "y" con la variable "x" (*y~x*, este elemento indica, en medida que x explica y). El siguiente argumento, *data=* detalla el conjunto de datos a utilizar. En el siguiente ejemplo se creará un modelo lineal que exlica la relación de la esperanza de vida con el producto interno bruto en el conjunto de datos de vacunas.
 
 ```{r gdp_life, echo=TRUE}
 gdp_vs_life <- lm(formula=Life_expectancy~GDP, data = vacunas_df)
@@ -86,7 +86,7 @@ ggplot(vacunas_df, aes(GDP)) +
   geom_histogram()
 ```
 
-Al observar la distribución se confirma el sesgo que presentan los datos. Cuando esto ocurre es válido realizar una transformación de los datos. Para esto se utiliza la transformación logarítmica o cuadrática. En este caso se realizará una transformación logarítmica de los datos.
+Al observar la distribución se confirma el sesgo que presentan los datos. Cuando esto ocurre es válido realizar una transformación. Para esto se utiliza la transformación logarítmica o cuadrática. En este caso se realizará una transformación logarítmica.
 
 ```{r grafico4, echo=TRUE}
 ggplot(vacunas_df, aes(log(GDP)))+
@@ -130,7 +130,7 @@ El modelo con transformación logarítmica explica de manera más clara la relac
 
 ## Regresión múltiple
 
-En ocasiones dos o más variables explican el efecto presente sobre la variable respuesta. Cada efecto es independiente y puede ser positivo o negativo. Para realizar un regresión múltiple en R se utiliza la función *lm()*. Sin embargo, se concatenan las variables explicativas mediante el signo *+* en el argumento de formula. En el siguiente ejemplo, se muestra la relación de la esperanza de vida con las variables PIB, porcentaje de vacunación para las inmunizaciones BCG y poliomielitis.
+En ocasiones dos o más variables explican el efecto presente sobre la variable respuesta. Cada efecto es independiente y puede ser positivo o negativo. Para realizar una regresión múltiple en R se utiliza la función *lm()*. Sin embargo, se concatenan las variables explicativas mediante el signo *+* en el argumento de formula. En el siguiente ejemplo, se muestra la relación de la esperanza de vida con las variables PIB y porcentaje de vacunación para las inmunizaciones BCG y poliomielitis.
 
 ```{r multi_lineal, echo=TRUE}
 life_vs_bcg_gdp_pol <- lm(formula = Life_expectancy~GDP+BCG+Pol3,
@@ -145,7 +145,7 @@ confint(life_vs_bcg_gdp_pol)
 tidy(life_vs_bcg_gdp_pol)
 ```
 
-De esta manera, es posible conocer una relación de un conjunto de variables explicativas con la variables respuesta.
+De esta manera, es posible conocer una relación de un conjunto de variables explicativas con la variable respuesta.
 
 **Nota: al igual que en el modelo lineal simple, se recomienda conocer la distribución de los datos previo a la aplicación de cualquier transformación o desarrollo de modelos**
 
@@ -178,7 +178,7 @@ correlaciones <- cor(data_vacunas_2)
 corrplot(correlaciones, method = 'circle', tl.col = 'black')
 ```
 
-Como se ha mencionado, si se desea cambiar el método estadístico, se utiliza el argumento homónimo dentro de la función *cor()*. Posteriormente, es posible graficar esta información utilizando la función *corrplot()*.
+Como se ha mencionado, si se desea cambiar el método estadístico, se utiliza el argumento homónimo dentro de la función *cor()*. Posteriormente, es posible graficar esta información utilizando la función *corrplot()*. A continuación, se realizará una amtriz de correlación mediante el método de Kendall.
 
 ```{r kendall, echo=TRUE}
 correlaciones_kendall <- cor(data_vacunas_2, method = 'kendall')
@@ -186,7 +186,7 @@ correlaciones_kendall <- cor(data_vacunas_2, method = 'kendall')
 corrplot(correlaciones_kendall, method = 'circle', tl.col = 'black')
 ```
 
-En este ejemplo, se grafica la matriz de correlación utilizando el método de Spearman.
+En el siguiente ejemplo, se grafica la matriz de correlación utilizando el método de Spearman.
 
 ```{r spearman, echo=TRUE}
 correlaciones_spearman <- cor(data_vacunas_2, method = 'spearman')
