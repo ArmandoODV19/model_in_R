@@ -33,3 +33,9 @@ Para este apartado utilizaremos el conjunto de datos de vacunación obtenido del
 vacunas_df <- read_csv('../data/dataset_vacunas.csv')
 ```
 
+Para facilitar el uso de las variables del conjunto de datos utilizaremos la función *attach()* de la paquetería *base*. Esta permite que cada variable del dataset se vuelva un vector independiente, sin saturar la memoria del ambiente.
+
+```{r attach, echo=TRUE}
+attach(vacunas_df)
+```
+
