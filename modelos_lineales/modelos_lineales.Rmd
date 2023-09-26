@@ -39,3 +39,18 @@ Para facilitar el uso de las variables del conjunto de datos utilizaremos la fun
 attach(vacunas_df)
 ```
 
+Los modelos lineales describen la relación de la variable respuesta (dependiente) y la(s) variable(s) explicativa(s) (independiente). Esta relación puede ser positiva, negativa o estar ausente. En R, este tipo de modelos se realiza mediante la función *lm()* de la paquetería *stats*. Los argumentos que se colocan son los siguientes. *formula = y~x*, describe la relación de la variable "y" con la variable "x" (*y~x*, este elemento indica, en medida que x explica y). El siguiente argumento, *data=* detalla el conjunto de datos a utilizar. En el siguiente ejemplo se creará un modelo lineal que exlique la relación de la esperanza de vida con el producto interno bruto en el conjunto de datos de vacunas.
+
+```{r gdp_life, echo=TRUE}
+gdp_vs_life <- lm(Life_expectancy~GDP, data = vacunas_df)
+
+```
+
+Para extraer la información del modelo se utilizan las funciones *print()*, *summary()* y *tidy()*.
+
+```{r gdp_life_coeficientes, echo=TRUE}
+summary(gdp_vs_life)
+confint(gdp_vs_life)
+tidy(gdp_vs_life)
+```
+
