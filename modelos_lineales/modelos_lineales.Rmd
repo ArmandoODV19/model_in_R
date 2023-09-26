@@ -169,3 +169,38 @@ tidy(modelo_multivariable)
 ```
 
 ## Correlación
+
+```{r correl, echo=TRUE}
+correlaciones <- cor(data_vacunas_2)
+
+corrplot(correlaciones, method = 'circle', tl.col = 'black')
+```
+
+Kendall
+
+```{r kendall, echo=TRUE}
+correlaciones_kendall <- cor(data_vacunas_2, method = 'kendall')
+
+corrplot(correlaciones_kendall, method = 'circle', tl.col = 'black')
+```
+
+Spearman
+
+```{r spearman, echo=TRUE}
+correlaciones_spearman <- cor(data_vacunas_2, method = 'spearman')
+
+corrplot(correlaciones_spearman, method = 'circle', tl.col = 'black')
+```
+
+## Regresión logisitica
+
+
+
+
+
+
+
+
+
+
+
