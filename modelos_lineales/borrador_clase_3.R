@@ -308,3 +308,26 @@ tidy(cancer_multiva)
 
 
 ### prediccion
+
+gdp_vs_life <- lm(Life_expectancy~GDP, data = vacunas_df)
+
+# creando la formula
+
+funcion_esperanza <- function(x){
+  gdp = 0.000248
+  intercept = 67.6
+  resultado = intercept + gdp*x
+  return(resultado)
+}
+
+funcion_esperanza(12531)
+
+# con funcion predict
+
+nueva_esperanza <- data.frame(esperanza = c(12531))
+
+head(predict(gdp_vs_life, nueva_esperanza, type = 'response'),1)
+
+
+
+
