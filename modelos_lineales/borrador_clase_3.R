@@ -260,6 +260,38 @@ cancer_df <- readRDS('data/cancer_data.RDS')
 
 summary(cancer_df)
 
+# datos binominales
 
+
+# logit(p) = B0 + B1X + E
+
+# se usa la funcion glm(), solo se agrega el argumento
+# family = 'binomial'
+# glm(y~x, data = dat, family = 'binomial')
+
+# para informacion del modelo tambien se utliza
+# print(), summary(), tidy()
+
+
+attach(cancer_df)
+
+# dx_cancer vs stds_condylomatosis
+
+cancer_model <- glm(dx_cancer~stds_condylomatosis, data = cancer_df,
+    family = 'binomial')
+
+print(cancer_model)
+summary(cancer_model)
+tidy(cancer_model)
+
+# dx_cancer vs stds_hepatitis + dx_hpv
+
+cancer_model_2variables <- glm(dx_cancer~stds_hepatitis_b+dx_hpv,
+                               data = cancer_df, family = 'binomial')
+
+
+print(cancer_model_2variables)
+summary(cancer_model_2variables)
+tidy(cancer_model_2variables)
 
 ### prediccion
