@@ -328,6 +328,10 @@ nueva_esperanza <- data.frame(esperanza = c(12531))
 
 head(predict(gdp_vs_life, nueva_esperanza, type = 'response'),1)
 
+# mas variables
 
+nueva_esperanza_2 <- data.frame(esperanza = c(12531, 11787, 7159))
+
+head(predict(gdp_vs_life, nueva_esperanza_2, type = 'response'),3)
 
 
