@@ -170,13 +170,15 @@ tidy(modelo_multivariable)
 
 ## Correlación
 
+La correlación define la dependencia de una o más variables de manera lineal. A partir de la función *cor()* de la paquetería *stats()* es posible construir una matriz de correlación entre dos o más variables. Por defecto esta función genera la matriz de correlación mediante el método de Pearson. No obstante, mediante el argumento *method = *, es posible modificar el método estadístico, teniendo como posibilidades las variantes de Kendall y Spearman. Esta información puede ser más atarctiva de manera visual al ser graficada. Esto se realiza mediante la función *corrplot()* de la paquetería *corrplot*. El siguiente ejemplo tomará la información del dataset de vacunas usado en el ejercicio previo, en el cual se eliminó la información de la entidad.
+
 ```{r correl, echo=TRUE}
 correlaciones <- cor(data_vacunas_2)
 
 corrplot(correlaciones, method = 'circle', tl.col = 'black')
 ```
 
-Kendall
+Como se ha mencionado, si se desea cambiar el método estadístico, se utiliza el argumento homónimo dentro de la función *cor()*. Posteriormente, es posible graficar esta información utilizando la función *corrplot()*.
 
 ```{r kendall, echo=TRUE}
 correlaciones_kendall <- cor(data_vacunas_2, method = 'kendall')
@@ -184,7 +186,7 @@ correlaciones_kendall <- cor(data_vacunas_2, method = 'kendall')
 corrplot(correlaciones_kendall, method = 'circle', tl.col = 'black')
 ```
 
-Spearman
+En este ejemplo, se grafica la matriz de correlación utilizando el método de Spearman.
 
 ```{r spearman, echo=TRUE}
 correlaciones_spearman <- cor(data_vacunas_2, method = 'spearman')
