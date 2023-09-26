@@ -1,0 +1,26 @@
+---
+title: "Modelos lineales"
+author: "Armando Ocampo"
+
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Librerias de trabajo
+
+Antes de comenzar a trabajar, te recomiendo abrir las siguientes librerias. Si no cuentas con alguna de ellas es posible instalarla mediante la función *install.packages()*
+
+```{r librerias, echo=TRUE, message=FALSE, warning=FALSE}
+library(readr)
+library(dplyr)
+library(corrplot)
+library(ggplot2)
+library(scales)
+library(ggpubr)
+library(broom)
+```
+
+Asimismo, se agregan dos conjuntos de datos. Los cuales debes descargar y guardar en la carpeta *clean_data*.
