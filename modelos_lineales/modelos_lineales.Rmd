@@ -196,7 +196,7 @@ corrplot(correlaciones_spearman, method = 'circle', tl.col = 'black')
 
 ## Regresión logisitica
 
-La regresión logistíca permite generar modelos donde la información está representada por una serie de 1s y 0s. Indicando acierto o error e incluso presencia o ausencia de alguna característica; dependiendo cada caso. En el siguiente ejemplo utilizaremos información del dataset de cáncer cervicouterino, proveniente del *repositorio de aprendizaje de máquina de la universidad de Michigan*. En este conjunto de datos se muestra la relación de presentar cáncer cervicouterino a partir de la relación con factores de riesgo descritos en la literatura. El primer paso consta en llamar el dataset al ambiente de trabajo. Al igual que en el dataset previo, se utilizará la función *attach()* para trabajar con cada variable de manera independiente. 
+La regresión logistíca permite generar modelos donde la información está representada por una serie de 1s y 0s. Indicando acierto o error e incluso presencia o ausencia de alguna característica; dependiendo cada caso. En el siguiente ejemplo utilizaremos información del dataset de cáncer cervicouterino, proveniente del **[repositorio de aprendizaje de máquina de la universidad de Irvin California](https://archive.ics.uci.edu/datasets?search=Cervical%20cancer%20(Risk%20Factors))**. En este conjunto de datos se muestra la relación de presentar cáncer cervicouterino a partir de la relación con factores de riesgo descritos en la literatura. El primer paso consta en llamar el dataset al ambiente de trabajo. Al igual que en el dataset previo, se utilizará la función *attach()* para trabajar con cada variable de manera independiente. 
 
 ```{r cancer, echo=TRUE}
 cancer_df <- readRDS('../data/cancer_data.RDS')
