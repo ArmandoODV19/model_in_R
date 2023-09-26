@@ -256,13 +256,14 @@ tidy(cancer_multiva)
 
 ## Predicción con modelos
 
-Recordando modelo
+Derivado de la información generada de los modelos es posible realizar predicciones. Es decir, cuál será el efecto de una variable hipotética en el conjunto de datos. Para esto podemos generar una función a partir de la extracción de los coeficientes del modelo. Antes de comenzar, vamos a recordar el modelo sin tranformación de la relación del PIB y la esperanza de vida.
 
 ```{r prediccion, echo=TRUE}
 gdp_vs_life <- lm(Life_expectancy~GDP, data = vacunas_df)
+tidy(gdp_vs_life)
 ```
 
-Creando función
+Posteriormente, desarrolaremos una función con los valores de intercepción y estimación del modelo. Por último, colocaremos un nuevo valor para predecir la esperanza de vida teórica.
 
 ```{r pred2, echo=TRUE}
 funcion_esperanza <- function(x){
@@ -275,7 +276,7 @@ funcion_esperanza <- function(x){
 funcion_esperanza(12531)
 ```
 
-Usando predict()
+Esta función es eficaz. Sin embargo, la función *predict()* de la paquetería *stats* toma la información de un modelo y plantea valores teóricos para datos nuevos. En el siguiente ejemplo se usará la función *predict()* para calcular el valor de una variable nueva.
 
 ```{r pred3, echo=TRUE}
 nueva_esperanza <- data.frame(esperanza = c(12531))
@@ -284,7 +285,7 @@ head(predict(gdp_vs_life, nueva_esperanza, type = 'response'),1)
 
 ```
 
-Utilizando más variables
+Esta función tiene como ventaja el realizar más de una predicción a la vez.
 
 ```{r pred4, echo=TRUE}
 nueva_esperanza_2 <- data.frame(esperanza = c(12531, 11787, 7159))
