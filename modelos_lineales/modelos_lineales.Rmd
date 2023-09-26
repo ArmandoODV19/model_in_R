@@ -168,4 +168,4 @@ confint(modelo_multivariable)
 tidy(modelo_multivariable)
 ```
 
-
+## Correlación
