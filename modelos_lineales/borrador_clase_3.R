@@ -322,7 +322,7 @@ funcion_esperanza <- function(x){
 
 funcion_esperanza(12531)
 
-# con funcion predict
+# con funcion predict()
 
 nueva_esperanza <- data.frame(esperanza = c(12531))
 
