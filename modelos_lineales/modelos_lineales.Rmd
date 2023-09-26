@@ -195,6 +195,59 @@ corrplot(correlaciones_spearman, method = 'circle', tl.col = 'black')
 ## Regresión logisitica
 
 
+```{r cancer, echo=TRUE}
+cancer_df <- readRDS('data/cancer_data.RDS')
+
+summary(cancer_df)
+
+attach(cancer_df)
+```
+
+
+
+```{r logisitca1, echo=TRUE}
+cancer_model <- glm(dx_cancer~stds_condylomatosis, data = cancer_df,
+    family = 'binomial')
+```
+
+Extracción de coeficientes
+
+```{r coef_log, echo=TRUE}
+print(cancer_model)
+summary(cancer_model)
+tidy(cancer_model)
+```
+
+
+```{r logistica2, echo=TRUE}
+cancer_model_2variables <- glm(dx_cancer~stds_hepatitis_b+dx_hpv,
+                               data = cancer_df, family = 'binomial')
+```
+
+Extracción de coeficientes
+
+```{r logisitca4, echo=TRUE}
+print(cancer_model_2variables)
+summary(cancer_model_2variables)
+tidy(cancer_model_2variables)
+```
+
+
+```{r logistica5, echo=TRUE}
+cancer_df_binomial <- cancer_df %>%
+  select(-age, -number_of_sexual_partners, -smokes_years)
+
+cancer_multiva <- glm(dx_cancer~., data = cancer_df_binomial,
+                      family = 'binomial')
+```
+
+Extracción de coeficientes
+
+```{r logistica6, echo=TRUE}
+print(cancer_multiva)
+summary(cancer_multiva)
+tidy(cancer_multiva)
+```
 
 
 
