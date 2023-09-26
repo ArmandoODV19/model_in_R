@@ -254,7 +254,7 @@ summary(cancer_multiva)
 tidy(cancer_multiva)
 ```
 
-## Predicción con modelos
+## Modelos de predicción
 
 Derivado de la información generada de los modelos es posible realizar predicciones. Es decir, cuál será el efecto de una variable hipotética en el conjunto de datos. Para esto podemos generar una función a partir de la extracción de los coeficientes del modelo. Antes de comenzar, vamos a recordar el modelo sin tranformación de la relación del PIB y la esperanza de vida.
 
