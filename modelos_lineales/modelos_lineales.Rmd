@@ -196,7 +196,7 @@ corrplot(correlaciones_spearman, method = 'circle', tl.col = 'black')
 
 
 ```{r cancer, echo=TRUE}
-cancer_df <- readRDS('data/cancer_data.RDS')
+cancer_df <- readRDS('../data/cancer_data.RDS')
 
 summary(cancer_df)
 
@@ -250,6 +250,43 @@ tidy(cancer_multiva)
 ```
 
 ## Predicción con modelos
+
+Recordando modelo
+
+```{r prediccion, echo=TRUE}
+gdp_vs_life <- lm(Life_expectancy~GDP, data = vacunas_df)
+```
+
+Creando función
+
+```{r pred2, echo=TRUE}
+funcion_esperanza <- function(x){
+  gdp = 0.000248
+  intercept = 67.6
+  resultado = intercept + gdp*x
+  return(resultado)
+}
+
+funcion_esperanza(12531)
+```
+
+Usando predict()
+
+```{r pred3, echo=TRUE}
+nueva_esperanza <- data.frame(esperanza = c(12531))
+
+head(predict(gdp_vs_life, nueva_esperanza, type = 'response'),1)
+
+```
+
+Utilizando más variables
+
+```{r pred4, echo=TRUE}
+nueva_esperanza_2 <- data.frame(esperanza = c(12531, 11787, 7159))
+
+head(predict(gdp_vs_life, nueva_esperanza_2, type = 'response'),3)
+```
+
 
 
 
