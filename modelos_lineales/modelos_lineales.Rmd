@@ -56,7 +56,7 @@ tidy(gdp_vs_life)
 
 Además de los estadísticos de confianza, estas funciones generan los coeficientes que permiten generar la función que explica el modelo. Proporcionando la intercepción con el eje de las "y", y la relación de entre variables.
 
-De esta manera obtenemos la siguiente fórmula *y = (0.000248)x+ 67.6*. 
+De esta manera obtenemos la siguiente fórmula *y = (0.000248)x + 67.6*. 
 Posteriormente, podemos graficar el modelo. Para esto generaremos un gráfico de dispersión en la paquetería *ggplot2*, agregando la función *geom_smooth(method = 'glm')*, este argumento crea un modelo lineal generalizado.
 
 ```{r grafico1, echo=TRUE, message=FALSE}
@@ -78,4 +78,58 @@ ggplot(vacunas_df, aes(x = GDP, y = Life_expectancy)) +
   ylab('Esperanza de vida')+
   theme_bw()
 ```
+
+Uno de los puntos a resaltar es que la mayoría de los datos del producto interno bruto se encuentran desplazados a la izquierda. Para una mejor visualización se graficará la distribución de los datos.
+
+```{r grafico3, echo=TRUE}
+ggplot(vacunas_df, aes(GDP)) +
+  geom_histogram()
+```
+
+Al observar la distribución se confirma el sesgo que presentan los datos. Cuando esto ocurre es válido realizar una transformación de los datos. Para esto se utiliza la transformación logarítmica o cuadrática. En este caso se realizará una transformación logarítmica de los datos.
+
+```{r grafico4, echo=TRUE}
+ggplot(vacunas_df, aes(log(GDP)))+
+  geom_histogram()
+```
+
+Los datos no siguen una distribución simétrica. No obstante, se ha reducido el sesgo de distribución. A continuación, se repetirá el modelo lineal, no obstante, los datos de PIB presentarán una transformación logarítmica.
+
+```{r transformacion, echo=TRUE}
+gdp_vs_life_log <- lm(Life_expectancy~log(GDP), data = vacunas_df)
+```
+
+De la misma forma, se extraerán los estadísticos e información del modelo. Donde la nueva función se explica de la siguiente manera *y = (5.24)x + 23.6*
+
+```{r estadisticos_log, echo=TRUE}
+summary(gdp_vs_life_log)
+confint(gdp_vs_life_log)
+tidy(gdp_vs_life_log)
+```
+
+En este punto, graficaremos el nuevo modelo.
+
+```{r grafico5, echo=TRUE, message=FALSE, warning=FALSE}
+ggplot(vacunas_df, aes(x = log(GDP), y = Life_expectancy)) +
+  geom_point(size = 7, color = 'dodgerblue', alpha = 0.7)+
+  geom_smooth(method = 'glm', color = 'azure4')+
+  xlab('Producto Interno Bruto')+
+  ylab('Esperanza de vida')+
+  theme_bw()
+```
+
+Al observar el gráfico se detalla que los datos ya no se encuentran agrupados en un solo sitio. Por último compararemos ambos modelos.
+
+```{r comparando, echo=TRUE, message=FALSE}
+tidy(gdp_vs_life)
+tidy(gdp_vs_life_log)
+```
+
+El modelo con transformación logarítmica explica de manera más clara la relación entre las variables.
+
+
+
+
+
+
 
