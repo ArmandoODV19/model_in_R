@@ -149,6 +149,23 @@ De esta manera, es posible conocer una relación de un conjunto de variables exp
 
 **Nota: al igual que en el modelo lineal simple, se recomienda conocer la distribución de los datos previo a la aplicación de cualquier transformación o desarrollo de modelos**
 
+Cuando se desea comparar una variable con el resto, existe un atajo para no concatenar todas las variables dentro del argumento fórmula. En este punto se describe lo siguiente: *formula = y~.* . De esta manera, se indica que se comparará la variable "y" con el resto de las variables en el dataset. En el siguiente ejemplo, se comparará la esperanza de vida con el resto de las variables, eliminando el código y nombre de cada región. 
 
+```{r multi2, echo=TRUE}
+data_vacunas_2 <- vacunas_df %>%
+  select(-Entity, -Code)
+
+modelo_multivariable <- lm(formula=Life_expectancy~.,
+                           data = data_vacunas_2)
+
+```
+
+Extracción de información del modelo.
+
+```{r val_multi, echo=TRUE}
+summary(modelo_multivariable)
+confint(modelo_multivariable)
+tidy(modelo_multivariable)
+```
 
 
