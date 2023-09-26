@@ -27,7 +27,7 @@ Asimismo, se agregan dos conjuntos de datos. Los cuales debes descargar y guarda
 
 ## Modelos lineales
 
-Para este apartado utilizaremos el conjunto de datos de vacunación obtenido del portal **Our World in Data**, el cual se conforma por información de 171 países, agregando las variables esperanza de vida, producto interno bruto *per capita* y porcentaje de vacunación de 13 inmunizaciones. Este dataset tiene actualización al 31 de diciembre de 2019. El formato es un archivo de valores separados por coma (*comma separate values, csv*). Antes de comenzar, lo llamaremos a nuestro ambiente de trabajo.
+Para este apartado utilizaremos el conjunto de datos de vacunación obtenido del portal **[Our World in Data](https://ourworldindata.org/vaccination)**, el cual se conforma por información de 171 países, agregando las variables esperanza de vida, producto interno bruto *per capita* y porcentaje de vacunación de 13 inmunizaciones. Este dataset tiene actualización al 31 de diciembre de 2019. El formato es un archivo de valores separados por coma (*comma separate values, csv*). Antes de comenzar, lo llamaremos a nuestro ambiente de trabajo.
 
 ```{r vacunas, echo=TRUE, message=FALSE, warning=FALSE}
 vacunas_df <- read_csv('../data/dataset_vacunas.csv')
