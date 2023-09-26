@@ -42,7 +42,7 @@ attach(vacunas_df)
 Los modelos lineales describen la relación de la variable respuesta (dependiente) y la(s) variable(s) explicativa(s) (independiente). Esta relación puede ser positiva, negativa o estar ausente. En R, este tipo de modelos se realiza mediante la función *lm()* de la paquetería *stats*. Los argumentos que se colocan son los siguientes. *formula = y~x*, describe la relación de la variable "y" con la variable "x" (*y~x*, este elemento indica, en medida que x explica y). El siguiente argumento, *data=* detalla el conjunto de datos a utilizar. En el siguiente ejemplo se creará un modelo lineal que exlique la relación de la esperanza de vida con el producto interno bruto en el conjunto de datos de vacunas.
 
 ```{r gdp_life, echo=TRUE}
-gdp_vs_life <- lm(Life_expectancy~GDP, data = vacunas_df)
+gdp_vs_life <- lm(formula=Life_expectancy~GDP, data = vacunas_df)
 
 ```
 
@@ -96,7 +96,7 @@ ggplot(vacunas_df, aes(log(GDP)))+
 Los datos no siguen una distribución simétrica. No obstante, se ha reducido el sesgo de distribución. A continuación, se repetirá el modelo lineal, no obstante, los datos de PIB presentarán una transformación logarítmica.
 
 ```{r transformacion, echo=TRUE}
-gdp_vs_life_log <- lm(Life_expectancy~log(GDP), data = vacunas_df)
+gdp_vs_life_log <- lm(formula = Life_expectancy~log(GDP), data = vacunas_df)
 ```
 
 De la misma forma, se extraerán los estadísticos e información del modelo. Donde la nueva función se explica de la siguiente manera *y = (5.24)x + 23.6*
@@ -128,7 +128,26 @@ tidy(gdp_vs_life_log)
 El modelo con transformación logarítmica explica de manera más clara la relación entre las variables.
 
 
+## Regresión múltiple
 
+En ocasiones dos o más variables explican el efecto presente sobre la variable respuesta. Cada efecto es independiente y puede ser positivo o negativo. Para realizar un regresión múltiple en R se utiliza la función *lm()*. Sin embargo, se concatenan las variables explicativas mediante el signo *+* en el argumento de formula. En el siguiente ejemplo, se muestra la relación de la esperanza de vida con las variables PIB, porcentaje de vacunación para las inmunizaciones BCG y poliomielitis.
+
+```{r multi_lineal, echo=TRUE}
+life_vs_bcg_gdp_pol <- lm(formula = Life_expectancy~GDP+BCG+Pol3,
+                          data = vacunas_df)
+```
+
+La extracción de los coeficientes y estadísticos se realiza de la misma manera que en el modelo lineal simple.
+
+```{r coef_multi, echo=TRUE}
+summary(life_vs_bcg_gdp_pol)
+confint(life_vs_bcg_gdp_pol)
+tidy(life_vs_bcg_gdp_pol)
+```
+
+De esta manera, es posible conocer una relación de un conjunto de variables explicativas con la variables respuesta.
+
+**Nota: al igual que en el modelo lineal simple, se recomienda conocer la distribución de los datos previo a la aplicación de cualquier transformación o desarrollo de modelos**
 
 
 
