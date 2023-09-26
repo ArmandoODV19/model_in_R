@@ -249,6 +249,8 @@ summary(cancer_multiva)
 tidy(cancer_multiva)
 ```
 
+## Predicción con modelos
+
 
 
 
