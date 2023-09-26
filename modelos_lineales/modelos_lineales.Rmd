@@ -54,3 +54,6 @@ confint(gdp_vs_life)
 tidy(gdp_vs_life)
 ```
 
+Además de los estadísticos de confianza, estas funciones generan los coeficientes que permiten generar la función que explica el modelo. Proporcionando la intercepción con el eje de las "y", y la relación de entre variables.
+
+De esta manera obtenemos la siguiente fórmula *y = (0.000248)x+ 67.6*. 
