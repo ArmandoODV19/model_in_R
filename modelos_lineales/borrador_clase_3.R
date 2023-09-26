@@ -294,4 +294,17 @@ print(cancer_model_2variables)
 summary(cancer_model_2variables)
 tidy(cancer_model_2variables)
 
+# dx_cancer vs todas las variables binomiales
+
+cancer_df_binomial <- cancer_df %>%
+  select(-age, -number_of_sexual_partners, -smokes_years)
+
+cancer_multiva <- glm(dx_cancer~., data = cancer_df_binomial,
+                      family = 'binomial')
+
+print(cancer_multiva)
+summary(cancer_multiva)
+tidy(cancer_multiva)
+
+
 ### prediccion
