@@ -58,3 +58,11 @@ disteEst
 
 M <- 1/disteEst
 M
+
+
+
+
+#### copiar resultados en excel
+
+write_clip(df)
+clipr::write_clip()
