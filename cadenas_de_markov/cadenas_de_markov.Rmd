@@ -1,7 +1,7 @@
 ---
 title: "Cadenas de Markov"
 author: "Armando Ocampo"
-date: "2023-10-01"
+
 output: pdf_document
 ---
 
@@ -17,6 +17,7 @@ Antes de iniciar vamos a llamar a las siguiente librerías. Para su instalación
 library(markovchain)
 library(moments)
 library(clipr)
+library(readr)
 ```
 
 ## Dudas de la clase previa
@@ -25,7 +26,8 @@ library(clipr)
 
 A continuación se comparten algunos ejemplos de cómo se pueden copiar los datos de los objetos en R y pegar la información en un libro de excel. El primer ejemplo copia la información en el pisa papeles de la máquina (o clipboard) y permite su pegado posterior. Para ello se utiliza la función *write_clip()* de la paquetería *clipr*. En esta función solo se coloca el nombre del objeto que se desea copiar.
 
-```{r pisa, echo=TRUE}
+```{r pisa, echo=TRUE, message=FALSE, warning=FALSE}
+vacunas_df <- read_csv('../data/dataset_vacunas.csv')
 # write_clip(vacunas_df)
 ```
 
@@ -40,5 +42,33 @@ Otra manera de realizar este proceso es mediante la función *write.table()* de 
 ```
 
 Al igual que en el código previo, abrimos una hoja de Excel y pegamos la información.
+
+### Transformación de los datos
+
+Durante el proceso de minería de datos y desarrollo de modelos podemos encontrar información que no sigue una distribución normal o con valores extremos. En este caso se sugiere realizar una transformación de los datos. No obstante, queda la duda sobre el tipo de transformación a realizar. La función *skewness()* de la paquetería *moments* calcula el sesgo de la información y facilita este proceso. En ella se coloca el vector del cual se desea conocer el tipo de sesgo que presenta. De la misma manera, es válido realizar la transformación de la información al número de variables que sea necesario, previo al desarrollo de algoritmos o análisis de datos.
+
+```{r sesgo, echo=TRUE}
+# Sesgo de PIB
+skewness(vacunas_df$GDP)
+
+# Sesgo de esperanza de vida
+skewness(vacunas_df$Life_expectancy)
+
+# Sesgo de longitud de sépalo
+skewness(iris$Sepal.Length)
+
+# Sesgo de ancho de pétalo
+skewness(iris$Petal.Width)
+```
+
+**Nota:si el sesgo es positivo se sugiere realizar una transformación cuadrática, logarítmica o inversa (1/x). Por el contrario, para sesgos negativos se recomiendan las siguientes transformaciones: sqrt(max(x+1) - x), log10(max(x+1) - x), 1/(max(x+1) - x)**  
+
+
+
+
+
+
+
+
 
 
