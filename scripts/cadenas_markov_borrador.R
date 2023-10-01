@@ -38,12 +38,12 @@ mc[1,3]
 
 # analisis en n pasos
 
-n <- 6
-mc ^ 6
+n <- 3
+mc ^ n
 
-# distribucion haci adelante
+# distribucion hacia adelante
 
-X0 = c(0.2,0.3,0.5) # La distribucion de X en t = 0
+X0 = c(200,300,500) # La distribucion de X en t = 0
 n = 6
 Xn = X0*(mc^n)
 
