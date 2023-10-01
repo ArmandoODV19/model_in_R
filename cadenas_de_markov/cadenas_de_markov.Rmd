@@ -69,7 +69,7 @@ skewness(iris$Petal.Width)
 Las cadenas de Markov pemiten conocer la probabilidad de que suceda un evento dado la aparición de un evento previo. Para esto se necesitan las siguientes caracterísitcas:
 
 1. Existe un número finito de estados. 
-2. La probabilidad de ocurrencia de un evento depende del suceso inmediatamente anterior.  
+2. La probabilidad de ocurrencia de un evento depende del suceso inmediatamente anterior. 
 3. Las probabilidades permanecen constantes en el tiempo.
 
 Para ello, se define como un estado a los posibles eventos que puedan ocurrir en un experimento.
