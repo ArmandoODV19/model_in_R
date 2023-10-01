@@ -1,0 +1,20 @@
+---
+title: "Cadenas de Markov"
+author: "Armando Ocampo"
+date: "2023-10-01"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Librerías de trabajo
+
+Antes de iniciar vamos a llamar a las siguiente librerías. Para su instalación necesitamos la función *install.packages()* y el nombre de la paquetería entre comillas. Por ejemplo *install.packages('markovchain')*.
+
+```{r librerias, echo=TRUE, message=FALSE, warning=FALSE}
+library(markovchain)
+library(moments)
+```
+
