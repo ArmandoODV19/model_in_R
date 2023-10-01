@@ -76,3 +76,27 @@ write_clip(dado_100)
 write.table(dado_10, "clipboard",
             sep="\t", row.names=FALSE, na = "")
 
+
+#####
+
+# deteccion de sesgo
+install.packages('moments')
+library(moments)
+
+?skewness
+
+skewness(vacunas_df$GDP)
+skewness(vacunas_df$Life_expectancy)
+skewness(iris$Sepal.Length)
+skewness(iris$Petal.Width)
+
+#sqrt(x) for positively skewed data,
+#sqrt(max(x+1) - x) for negatively skewed data
+
+#log for greater skew:
+#log10(x) for positively skewed data,
+#log10(max(x+1) - x) for negatively skewed data
+
+#inverse for severe skew:
+#1/x for positively skewed data
+#1/(max(x+1) - x) for negatively skewed data
