@@ -18,3 +18,4 @@ library(markovchain)
 library(moments)
 ```
 
+## Dudas de la clase previa
