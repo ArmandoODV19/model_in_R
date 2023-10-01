@@ -64,5 +64,15 @@ M
 
 #### copiar resultados en excel
 
+## usando write_clip()
 write_clip(df)
 clipr::write_clip()
+
+
+write_clip(dado_100)
+
+
+# usando write.table()
+write.table(dado_10, "clipboard",
+            sep="\t", row.names=FALSE, na = "")
+
