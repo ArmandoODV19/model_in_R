@@ -11,11 +11,34 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Librerías de trabajo
 
-Antes de iniciar vamos a llamar a las siguiente librerías. Para su instalación necesitamos la función *install.packages()* y el nombre de la paquetería entre comillas. Por ejemplo *install.packages('markovchain')*.
+Antes de iniciar vamos a llamar a las siguiente librerías. Para su instalación necesitamos la función *install.packages()* y el nombre de la paquetería entre comillas. Por ejemplo, *install.packages('markovchain')*.
 
 ```{r librerias, echo=TRUE, message=FALSE, warning=FALSE}
 library(markovchain)
 library(moments)
+library(clipr)
 ```
 
 ## Dudas de la clase previa
+
+### Copiando resultados desde R a Excel
+
+A continuación se comparten algunos ejemplos de cómo se pueden copiar los datos de los objetos en R y pegar la información en un libro de excel. El primer ejemplo copia la información en el pisa papeles de la máquina (o clipboard) y permite su pegado posterior. Para ello se utiliza la función *write_clip()* de la paquetería *clipr*. En esta función solo se coloca el nombre del objeto que se desea copiar.
+
+```{r pisa, echo=TRUE}
+# write_clip(vacunas_df)
+```
+
+Después de correr este comando abrimos un libro en excel y pegamos los datos.
+
+
+Otra manera de realizar este proceso es mediante la función *write.table()* de la paquetería *utils*. Además del objeto, se agrega el destino de la información, en este caso de nuevo al *clipboard* del sistema. Se añade la separación por tabulador y se elimina el nombre de las filas para no redundar esta información.
+
+```{r pisa2, echo=TRUE}
+# write.table(vacunas_df, "clipboard",
+#            sep="\t", row.names=FALSE)
+```
+
+Al igual que en el código previo, abrimos una hoja de Excel y pegamos la información.
+
+
