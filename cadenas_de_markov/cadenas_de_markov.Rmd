@@ -93,6 +93,7 @@ summary(mc)
 
 
 ```{r grafico_cadena, echo=TRUE}
+set.seed(123)
 plot(mc)
 ```
 
@@ -103,7 +104,8 @@ recurrentClasses(mc)
 
 
 ```{r estado, echo=TRUE}
-transitionProbability(object = mc, t0 = 'a', t1 = 'c')
+transitionProbability(object = mc, t0 = 'frutas', 
+                      t1 = 'carne')
 mc[1,3]
 ```
 
