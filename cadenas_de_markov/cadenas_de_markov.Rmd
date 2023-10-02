@@ -66,13 +66,16 @@ skewness(iris$Petal.Width)
 
 ## Cadenas de Markov
 
-Las cadenas de Markov pemiten conocer la probabilidad de que suceda un evento dado la aparición de un evento previo. Para esto se necesitan las siguientes caracterísitcas:
+Las cadenas de Markov permiten conocer la probabilidad de que suceda un evento dado la aparición de un evento previo. Para esto se necesitan las siguientes caracterísitcas:
 
 1. Existe un número finito de estados. 
 2. La probabilidad de ocurrencia de un evento depende del suceso inmediatamente anterior. 
 3. Las probabilidades permanecen constantes en el tiempo.
 
-Para ello, se define como un estado a los posibles eventos que puedan ocurrir en un experimento. Cabe destacar que debe conocerce la probabilidad de ocurrencia de cada evento.
+Para ello, se define como un estado a los posibles eventos que puedan ocurrir en un experimento. Cabe destacar que debe conocerce la probabilidad de ocurrencia de cada evento. A continuación se generará un ejemplo utilizando cadenas de Markov. En el cual se genera una matriz de consumo de aliemntos, tomando la relación de consumo de frutas verduras y carne.
+
+
+Primero se define la matriz con la tasa de consumo.
 
 ```{r matriz, echo=TRUE}
 consumo = matrix(c(0.2,0.3,0.5,0.4,0.2,0.4,0.1,0.6,0.3),
@@ -80,6 +83,7 @@ consumo = matrix(c(0.2,0.3,0.5,0.4,0.2,0.4,0.1,0.6,0.3),
 consumo
 ```
 
+Posteriormente se genera el objeto *markovchain*, a partir de la función *new()*, la cual forma parte de la paquetería *methods*. Con esta función se define el tipo de objeto, se genera la matriz de transición y los estados.
 
 ```{r cadena_clima, echo=TRUE}
 mc <- new('markovchain', transitionMatrix = consumo,
@@ -91,12 +95,14 @@ str(mc) # lista de ragumentos
 summary(mc)
 ```
 
+Para una visualización de nuestro modelo utilizaremos la función *plot()* y el nombre de nuestro objeto tipo cadena. Este gráfico muestra la probabilidad de pasar de un estado a otro.
 
 ```{r grafico_cadena, echo=TRUE}
 set.seed(123)
 plot(mc)
 ```
 
+La función *recurrentClasses()*
 
 ```{r clases, echo=TRUE}
 recurrentClasses(mc)
