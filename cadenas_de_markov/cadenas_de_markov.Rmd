@@ -161,13 +161,17 @@ estables <- steadyStates(mc)
 estables
 ```
 
+Además de conocer la probabilidad de consumo o de suceso de un evento es posible determinar el total de usuarios que realizarian un evento dado un número determinado de pasos. En el siguiente ejemplo se parte de el consumo de aliementos de 1000 perosnas. 200 consumieron inicialmente frutas, 300 verduras y 500 carne. A partir de la información reportada en la cadena d eMarkov, ¿Cuál será la relación de consumo de alimentos en el tercer paso?
 
+Para esto se genera un vector de consumo inicial. Posteriormente se múltiplica la matriz de transición por el *n* de pasos necesarios. A continuación se multiplica esta matriz por el vector de consumo. Derivado de este modelo concluimos que el consumo de frutas de traduce a aproximadamente 235 personas, 378 para verduras y 386 individuos para carne.
 
 ```{r dias, echo=TRUE}
+set.seed(123)
 X0 = c(200,300,500) 
-n = 6
+n = 3
 Xn = X0*(mc^n)
 Xn
+sum(Xn)
 ```
 
 
