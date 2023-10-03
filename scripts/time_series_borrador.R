@@ -73,6 +73,18 @@ var(wn_2) # sinilar a arima
 
 # random walk model
 
+# proceso no estacionario, no estable
+# sin promedio o varianza específica
+# fuerte dependencia sobre el tiempo
+
+# funcion:
+# today = yesterday + noise
+# Yt = Yt-1  +  Et
+
+random_walk <- arima.sim(model = list(order = c(0,1,0)), n = 100)
+
+
+
 
 
 
