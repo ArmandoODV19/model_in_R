@@ -81,7 +81,32 @@ var(wn_2) # sinilar a arima
 # today = yesterday + noise
 # Yt = Yt-1  +  Et
 
-random_walk <- arima.sim(model = list(order = c(0,1,0)), n = 100)
+random_walk <- arima.sim(model = list(order = c(0,1,0)),
+                         n = 100)
+
+
+
+# Difference your random_walk data
+rw_diff <- diff(random_walk)
+
+# Plot rw_diff
+ts.plot(rw_diff)
+
+# Now fit the WN model to the differenced data
+model_wn <- arima(rw_diff, order = c(0,0,0))
+
+# Store the value of the estimated time trend (intercept)
+int_wn <- model_wn$coef
+
+# Plot the original random_walk data
+ts.plot(random_walk)
+
+# Use abline(0, ...) to add time trend to the figure
+abline(a = 0, b = int_wn)
+
+## stationary processes
+
+
 
 
 
