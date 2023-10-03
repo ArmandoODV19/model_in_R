@@ -121,6 +121,22 @@ plot(stock_a, stock_b)
 cov(x, y)
 cor(x, y)
 
+# autocorrelatio
+# compare today vs yesterday for each day
+# more predictable
+
+cor(x[-100], x[-1])
+
+# lag2 correlacion de dos dias previos
+
+cor(x[-(99:100)], x[-(1:2)])
+
+# autocorrelation function acf() define la autocorrelacion
+# de tiempos de retraso 1, 2, etc de manera simultanea
+# incluso es posible graficar
+
+acf(x, lag.max = 2, plot = FALSE)
+
 
 
 
