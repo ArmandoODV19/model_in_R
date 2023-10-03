@@ -20,7 +20,21 @@ plot(Nile, xlab = "Year",
 # funciones
 start() # primer valor
 end() # ultimo valor
+deltat() # intervalo de generacion de datos
 
+
+# creando objeto ts()
+
+data_vector <- c(10,6,11,8,10,3,6,9)
+serie_tiempo <- ts(data_vector)
+plot(serie_tiempo)
+
+# agregando año de inicio y tiempo de evolucion
+serie_tiempo_2 <- ts(data_vector, start = 2001,
+                     frequency = 1)
+plot(serie_tiempo_2)
+
+class(serie_tiempo)
 
 
 
