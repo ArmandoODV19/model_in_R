@@ -52,6 +52,28 @@ ts.plot(eu_stock, col = 1:4, xlab = "Year",
 
 # ejemplo de modelo estacionario
 #  promedio constante, varianza constante
+# sin correlación sobre el tiempo
+
+# la funcion arima.sim() simula un WN serie
+
+wn_1 <- arima.sim(model = list(order = c(0,0,0)), n = 50)
+head(wn_1)
+ts.plot(wn_1)
+
+wn_2 <- arima.sim(model = list(order = c(0,0,0)), n = 50,
+                  mean = 4, sd = 2)
+head(wn_2)
+ts.plot(wn_2)
+
+# estimando modelo wn
+
+arima(wn_2, order = c(0,0,0))
+mean(wn_2) # similar a arima
+var(wn_2) # sinilar a arima
+
+# random walk model
+
+
 
 
 
