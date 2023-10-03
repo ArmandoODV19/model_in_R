@@ -118,7 +118,8 @@ plot(stock_a, stock_b)
 
 # covariance and correlations
 
-
+cov(x, y)
+cor(x, y)
 
 
 
