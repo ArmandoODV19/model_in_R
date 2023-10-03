@@ -106,6 +106,9 @@ abline(a = 0, b = int_wn)
 
 ## stationary processes
 
+plot.ts(cbind(white_noise,
+              random_walk, wn_drift,
+              rw_drift)) # varios plots en uno solo
 
 
 
