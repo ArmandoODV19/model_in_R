@@ -112,6 +112,23 @@ plot.ts(cbind(white_noise,
 
 
 
+# scatter
+
+plot(stock_a, stock_b)
+
+# covariance and correlations
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
