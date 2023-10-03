@@ -36,6 +36,10 @@ plot(serie_tiempo_2)
 
 class(serie_tiempo)
 
+## graficos con ts.plot()
+ts.plot(eu_stock, col = 1:4, xlab = "Year",
+        ylab = "Index Value",
+        main = "Major European Stock Indices, 1991-1998")
 
 
 
