@@ -171,7 +171,7 @@ X0 = c(200,300,500)
 n = 3
 Xn = X0*(mc^n)
 Xn
-sum(Xn)
+sum(Xn) # al final, tenemos la distribución de los 1000 individuos
 ```
 
 
