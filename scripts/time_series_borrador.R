@@ -48,8 +48,10 @@ ts.plot(eu_stock, col = 1:4, xlab = "Year",
 # el cambio en una tendencia
 
 
+# white noise model
 
-
+# ejemplo de modelo estacionario
+#  promedio constante, varianza constante
 
 
 
