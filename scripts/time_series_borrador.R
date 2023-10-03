@@ -9,8 +9,13 @@
 # las observaciones en el eje equis de menor a mayor
 
 print(time_series)
+length(time_series) #numero de observaciones
 plot(time_series)
 
+plot(Nile, xlab = "Year",
+     ylab = "River Volume (1e9 m^{3})",
+     main = 'Annual River Nile Volume at Aswan, 1871-1970',
+     type = 'b') # l para line, b para puntos y lineas
 
 
 
