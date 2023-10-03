@@ -137,7 +137,14 @@ cor(x[-(99:100)], x[-(1:2)])
 
 acf(x, lag.max = 2, plot = FALSE)
 
+# prediccion
+AR_inflation <- arima(x, order = c(1,0,0))
+predict(AR_inflation)$pred
+predict(AR_inflation)$se
 
+# prediccion 6 pasos adelante
+predict(AR_inflation, n.head = 6)$pred
+predict(AR_inflation, n.head = 6)$se
 
 
 
