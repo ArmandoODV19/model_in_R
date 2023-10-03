@@ -17,6 +17,11 @@ plot(Nile, xlab = "Year",
      main = 'Annual River Nile Volume at Aswan, 1871-1970',
      type = 'b') # l para line, b para puntos y lineas
 
+# funciones
+start() # primer valor
+end() # ultimo valor
+
+
 
 
 
