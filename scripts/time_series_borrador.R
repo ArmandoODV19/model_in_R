@@ -42,6 +42,17 @@ ts.plot(eu_stock, col = 1:4, xlab = "Year",
         main = "Major European Stock Indices, 1991-1998")
 
 
+# trend
+
+# diff() se utiliza para conocer los incrementos en
+# el cambio en una tendencia
+
+
+
+
+
+
+
 
 
 
