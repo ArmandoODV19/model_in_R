@@ -28,22 +28,30 @@ De la misma manera, llamaremos a nuestro conjunto de datos a utilizar en el desa
 covid_mexico <- readRDS('../data/covid_mexico.RDS')
 ```
 
+Las series de tiempo de caracterizan por presentar información en un intervalo de tiempo definido. Este proceso permite comparar tendencias en los datos. Así como sitios de estancamiento. Para su exploración, es posible utilizar funciones como *min()*, *max()*, *length()* y *deltat()*. Esta última función arroja el intervalo de tiempo en días presente en el dataset.
 
 ```{r explorando, echo=TRUE}
 min(covid_mexico$date)
 max(covid_mexico$date)
-summary(covid_mexico$date)
 length(covid_mexico$date)
 1310/365  #3.5 años
-deltat(covid_mexico$date) # intervalo de fechas
+deltat(covid_mexico$date) # intervalo de tiempo en días
 ```
 
+Otra de las funciones que permiten describir el dataset es la función *diff()*, de la paquetería *base*. Esta función describe la diferencia de cada unidad con el valor previo en el rango de fechas establecidos.
 
 ```{r diferencia, echo=TRUE}
 diferencia_casos <- diff(covid_mexico$total_cases) %>%
   na.omit()
 
 head(diferencia_casos,20)
+```
+
+Mediante la función *ts()* de la paquetería *stats* es porible convertir esta diferencia en una serie de tiempo y graficar los valores dentro del periodo de tiempo marcado.
+
+```{r dif2, echo=TRUE}
+diferencia_ts <- ts(diferencia_casos)
+plot(diferencia_ts)
 ```
 
 
