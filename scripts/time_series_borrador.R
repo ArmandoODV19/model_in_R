@@ -1,5 +1,9 @@
 ### time series borrador
 
+# librerias de trabajo
+library(readr)
+library(dplyr)
+
 # secuencia de datos en orden cronológico
 # ordenado de manera secuencial
 
@@ -148,10 +152,13 @@ predict(AR_inflation, n.head = 6)$se
 
 
 
+### cargando datos de vacunas
 
+covid <- read_csv('data/covid_data.csv')
 
+write_rds(covid_mexico, 'data/covid_mexico.RDS')
 
-
+covid_mexico <- readRDS('data/covid_mexico.RDS')
 
 
 
