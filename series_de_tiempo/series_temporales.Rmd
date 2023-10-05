@@ -103,9 +103,12 @@ ggplot(covid_mexico, aes(x = date, y = total_cases)) +
   geom_smooth() +
   xlab('Fecha') +
   ylab('Casos Totales') +
+  theme_bw() +
   scale_x_date(date_labels = '%b %Y',
                date_breaks = '4 month') +
-  theme_bw()
+  theme(axis.text.x = element_text(angle = 90,
+vjust = 0.5, hjust=1))
+  
 ```
 
 
@@ -144,7 +147,9 @@ a <- covid_mexico %>%
   select(total_cases, date) %>%
   ggplot(aes(y = total_cases, x = date)) +
   geom_line() +
-  geom_smooth()
+  geom_smooth() +
+  theme(axis.text.x = element_text(angle = 90,
+vjust = 0.5, hjust=1))
 
 b <- covid_mexico %>%
   filter(date >= '2021-01-01',
@@ -152,7 +157,9 @@ b <- covid_mexico %>%
   select(total_deaths, date) %>%
   ggplot(aes(y = total_deaths, x = date)) +
   geom_line() +
-  geom_smooth()
+  geom_smooth()+
+  theme(axis.text.x = element_text(angle = 90,
+vjust = 0.5, hjust=1))
 
 c <- covid_mexico %>%
   filter(date >= '2021-01-01',
@@ -160,7 +167,9 @@ c <- covid_mexico %>%
   select(total_tests, date) %>%
   ggplot(aes(y = total_tests, x = date)) +
   geom_line() +
-  geom_smooth()
+  geom_smooth()+
+  theme(axis.text.x = element_text(angle = 90,
+vjust = 0.5, hjust=1))
 ```
 
 
