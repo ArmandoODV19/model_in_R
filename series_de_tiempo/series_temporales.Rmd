@@ -121,10 +121,56 @@ covid_mexico %>%
          date <= '2021-12-31')
 ```
 
+```{r grafico6, echo=TRUE, message=FALSE, warning=FALSE}
+covid_mexico %>%
+  filter(date >= '2021-01-01',
+         date <= '2021-12-31') %>%
+  ggplot(aes(x = date, y = total_cases)) +
+  geom_line() +
+  scale_x_date(date_breaks = '1 month') +
+  theme_bw()+
+  theme(axis.text.x = element_text(angle = 90,
+                                   vjust = 0.5, hjust=1))+
+  xlab('Fecha') +
+  ylab('Casos Totales')
+```
 
 
 
+```{r pegando, echo=TRUE, message=FALSE, warning=FALSE}
+a <- covid_mexico %>%
+  filter(date >= '2021-01-01',
+         date <= '2021-12-31') %>%
+  select(total_cases, date) %>%
+  ggplot(aes(y = total_cases, x = date)) +
+  geom_line() +
+  geom_smooth()
 
+b <- covid_mexico %>%
+  filter(date >= '2021-01-01',
+         date <= '2021-12-31') %>%
+  select(total_deaths, date) %>%
+  ggplot(aes(y = total_deaths, x = date)) +
+  geom_line() +
+  geom_smooth()
+
+c <- covid_mexico %>%
+  filter(date >= '2021-01-01',
+         date <= '2021-12-31') %>%
+  select(total_tests, date) %>%
+  ggplot(aes(y = total_tests, x = date)) +
+  geom_line() +
+  geom_smooth()
+```
+
+
+```{r pegando2, echo=TRUE, message=FALSE, warning=FALSE}
+ggarrange(a, b, c,
+          labels = c('CASOS', 'MUERTES', 'PRUEBAS'),
+          ncol = 3, nrow = 1,
+          font.label = list(size = 10),
+          hjust = 0, vjust = 2.2)
+```
 
 
 
