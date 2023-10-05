@@ -1,0 +1,79 @@
+---
+title: "Series Temporales"
+author: "Armando Ocampo"
+
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Series Temporales
+
+```{r librerias, echo=TRUE, message=FALSE, warning=FALSE}
+library(readr)
+library(dplyr)
+library(ggplot2)
+library(ggpubr)
+```
+
+
+```{r data, echo=TRUE}
+covid_mexico <- readRDS('../data/covid_mexico.RDS')
+```
+
+
+```{r explorando, echo=TRUE}
+min(covid_mexico$date)
+max(covid_mexico$date)
+summary(covid_mexico$date)
+length(covid_mexico$date)
+1310/365  #3.5 años
+deltat(covid_mexico$date) # intervalo de fechas
+```
+
+
+```{r diferencia, echo=TRUE}
+diferencia_casos <- diff(covid_mexico$total_cases) %>%
+  na.omit()
+
+head(diferencia_casos,20)
+```
+
+
+```{r grafico, echo=TRUE, warning=FALSE, message=FALSE}
+ggplot(covid_mexico, aes(x = date, y = total_cases)) +
+  geom_line()
+```
+
+
+```{r grafico2, echo=TRUE, warning=FALSE, message=FALSE}
+ggplot(covid_mexico, aes(x = date, y = total_cases)) +
+  geom_line() +
+  geom_smooth()
+```
+
+
+
+```{r grafico3, echo=TRUE, warning=FALSE, message=FALSE}
+ggplot(covid_mexico, aes(x = date, y = total_cases)) +
+  geom_line() +
+  geom_smooth() +
+  xlab('Fecha') +
+  ylab('Casos Totales') +
+  theme_bw()
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
