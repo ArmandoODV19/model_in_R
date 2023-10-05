@@ -28,6 +28,8 @@ De la misma manera, llamaremos a nuestro conjunto de datos a utilizar en el desa
 covid_mexico <- readRDS('../data/covid_mexico.RDS')
 ```
 
+## Series Temporales
+
 Las series de tiempo de caracterizan por presentar información en un intervalo de tiempo definido. Este proceso permite comparar tendencias en los datos. Así como sitios de estancamiento. Para su exploración, es posible utilizar funciones como *min()*, *max()*, *length()* y *deltat()*. Esta última función arroja el intervalo de tiempo en días presente en el dataset.
 
 ```{r explorando, echo=TRUE}
@@ -54,12 +56,14 @@ diferencia_ts <- ts(diferencia_casos)
 plot(diferencia_ts)
 ```
 
+Mediante la función *ggplot()* de la paquetería *ggplot2*, podemos evaluar la tendencia de los datos utilizando como base una fecha establecida. Esto mediante un gráfico de líneas. A continuación se muestra un ejemplo, en el cual eje 'x' se conforma por la fecha, y el eje 'y' por el total de casos por COVID-19.
 
 ```{r grafico, echo=TRUE, warning=FALSE, message=FALSE}
 ggplot(covid_mexico, aes(x = date, y = total_cases)) +
   geom_line()
 ```
 
+Tomando este gráfico como base, podemos agregar la función *geom_smooth()* para graficar la línes de tendencia de los datos.
 
 ```{r grafico2, echo=TRUE, warning=FALSE, message=FALSE}
 ggplot(covid_mexico, aes(x = date, y = total_cases)) +
@@ -67,7 +71,7 @@ ggplot(covid_mexico, aes(x = date, y = total_cases)) +
   geom_smooth()
 ```
 
-
+Por último, agregaremos algunos estéticos al gráfico.
 
 ```{r grafico3, echo=TRUE, warning=FALSE, message=FALSE}
 ggplot(covid_mexico, aes(x = date, y = total_cases)) +
@@ -78,25 +82,30 @@ ggplot(covid_mexico, aes(x = date, y = total_cases)) +
   theme_bw()
 ```
 
-scale_x_date() para darle formato a la fecha
+Uno de los puntos a detallar es la modificación del formato del eje de las equis. Siendo posible agregar los años, meses y días al gráfico. Para esto, se utiliza la función *scale_x_date()* compañado del siguiente código de formato para la fecha:
 
-%d: Day as a number between 0 and 31
 
-%a: Abbreviated weekday (e.g. “Tue”)
 
-%A: Unabbreviated weekday (e.g. “Tuesday”)
+%d: Días como un número del 1 al 
 
-%m: Month between 0 and 12
+%a: Abreviatura del día de la semana. 'Lun'
 
-%b: Abbreviated month (e.g. “Jan”)
+%A: Día de la semana sin abreviatura. 'Lunes'
 
-%B: Unabbreviated month (e.g. “January”)
+%m: Mes con número del 1 al 12
 
-%y: 2-digit year (e.g. “21”)
+%b: Abreviatura del mes. 'Ene'
 
-%Y: 4-digit year (e.g. “2021”)
+%B: Mes sin abreviatura. 'Enero'
 
-%W: Week of the year between 0 and 52
+%y: Año con dos dígitos. '23'
+
+%Y: Año con 4 dígitos. '2023'
+
+%W: Semana del año con un número entre 1 y 2.
+
+
+En el siguiente ejemplo se modificará el eje de las equis, colocando el nombre del mes de forma abreviada y el año en formato de 4 digitos.
 
 
 ```{r grafico4, echo=TRUE, message=FALSE, warning=FALSE}
@@ -109,6 +118,7 @@ ggplot(covid_mexico, aes(x = date, y = total_cases)) +
   theme_bw()
 ```
 
+Asimismo, en la función *scale_x_date()* es posible agregar el argumento *date_breaks=* para generar intervalos de tiempo en el eje. A continuación, se realizarán cortes en la fecha cada 4 meses.
 
 ```{r grafico5, echo=TRUE, warning=FALSE, message=FALSE}
 ggplot(covid_mexico, aes(x = date, y = total_cases)) +
@@ -123,6 +133,8 @@ ggplot(covid_mexico, aes(x = date, y = total_cases)) +
 vjust = 0.5, hjust=1))
   
 ```
+
+
 
 
 ```{r filtrando, echo=TRUE}
