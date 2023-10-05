@@ -86,6 +86,52 @@ scale_x_date() para darle formato a la fecha
 %W: Week of the year between 0 and 52
 
 
+```{r grafico4, echo=TRUE, message=FALSE, warning=FALSE}
+ggplot(covid_mexico, aes(x = date, y = total_cases)) +
+  geom_line() +
+  geom_smooth() +
+  xlab('Fecha') +
+  ylab('Casos Totales') +
+  scale_x_date(date_labels = '%b %Y') +
+  theme_bw()
+```
+
+
+```{r grafico5, echo=TRUE, warning=FALSE, message=FALSE}
+ggplot(covid_mexico, aes(x = date, y = total_cases)) +
+  geom_line() +
+  geom_smooth() +
+  xlab('Fecha') +
+  ylab('Casos Totales') +
+  scale_x_date(date_labels = '%b %Y',
+               date_breaks = '4 month') +
+  theme_bw()
+```
+
+
+```{r filtrando, echo=TRUE}
+min(covid_mexico$date)
+max(covid_mexico$date)
+```
+
+
+```{r filtrando2, echo=TRUE}
+covid_mexico %>%
+  filter(date >= '2021-01-01',
+         date <= '2021-12-31')
+```
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
