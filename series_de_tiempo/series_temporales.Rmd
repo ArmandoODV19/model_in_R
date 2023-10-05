@@ -47,7 +47,7 @@ diferencia_casos <- diff(covid_mexico$total_cases) %>%
 head(diferencia_casos,20)
 ```
 
-Mediante la función *ts()* de la paquetería *stats* es porible convertir esta diferencia en una serie de tiempo y graficar los valores dentro del periodo de tiempo marcado.
+Mediante la función *ts()* de la paquetería *stats* es porible convertir esta diferencia en una serie de tiempo y graficar los valores dentro del periodo de tiempo marcado. De esta manera es posible identificar los días con ascenso, descenso o estancamiento de la información.
 
 ```{r dif2, echo=TRUE}
 diferencia_ts <- ts(diferencia_casos)
