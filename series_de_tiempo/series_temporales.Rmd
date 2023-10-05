@@ -115,7 +115,7 @@ max(covid_mexico$date)
 ```
 
 
-```{r filtrando2, echo=TRUE}
+```{r filtrando2, echo=TRUE, warning=FALSE, message=FALSE}
 covid_mexico %>%
   filter(date >= '2021-01-01',
          date <= '2021-12-31')
