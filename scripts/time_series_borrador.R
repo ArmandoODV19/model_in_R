@@ -156,6 +156,9 @@ predict(AR_inflation, n.head = 6)$se
 
 covid <- read_csv('data/covid_data.csv')
 
+covid_mexico <- covid %>%
+  filter(location == 'Mexico')
+
 write_rds(covid_mexico, 'data/covid_mexico.RDS')
 
 covid_mexico <- readRDS('data/covid_mexico.RDS')
