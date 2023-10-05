@@ -9,7 +9,9 @@ output: pdf_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## Series Temporales
+## Librerías de trabajo
+
+Antes de comenzar a trabajar, debemos llamar a nuestras librerias de trabajo. Si no cuentas con alguna de estas librerias, puedes descargarla mediante la función *install.packages()*, y el nombre de la paquetería entre comillas. Por ejemplo, *install.packages('dplyr')*.
 
 ```{r librerias, echo=TRUE, message=FALSE, warning=FALSE}
 library(readr)
@@ -18,6 +20,9 @@ library(ggplot2)
 library(ggpubr)
 ```
 
+## Dataset de trabajo
+
+De la misma manera, llamaremos a nuestro conjunto de datos a utilizar en el desarrollo del proyecto. Este dataset contiene información de diferentes variables asociadas con la pandemia de COVID-19, tomando solo información de México. Presenta un rango del 01 de enero del 2020 al 02 de agosto del 2023. Para más información, puedes acceder al sitio de descarga de los datos crudos, [**Our World in Data**](https://ourworldindata.org/covid-vaccinations).
 
 ```{r data, echo=TRUE}
 covid_mexico <- readRDS('../data/covid_mexico.RDS')
