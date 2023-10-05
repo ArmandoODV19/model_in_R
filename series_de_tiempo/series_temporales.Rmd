@@ -65,6 +65,25 @@ ggplot(covid_mexico, aes(x = date, y = total_cases)) +
   theme_bw()
 ```
 
+scale_x_date() para darle formato a la fecha
+
+%d: Day as a number between 0 and 31
+
+%a: Abbreviated weekday (e.g. “Tue”)
+
+%A: Unabbreviated weekday (e.g. “Tuesday”)
+
+%m: Month between 0 and 12
+
+%b: Abbreviated month (e.g. “Jan”)
+
+%B: Unabbreviated month (e.g. “January”)
+
+%y: 2-digit year (e.g. “21”)
+
+%Y: 4-digit year (e.g. “2021”)
+
+%W: Week of the year between 0 and 52
 
 
 
