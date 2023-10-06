@@ -135,19 +135,22 @@ vjust = 0.5, hjust=1))
 ```
 
 
-
+En ocasiones no se requiere trabajar con todo el dataset, sino intervalos definidos de tiempo. Para ello, es necesario filtrar la información. A continuación, se muestra el intervalo de tiempo del conjunto de datos.
 
 ```{r filtrando, echo=TRUE}
-min(covid_mexico$date)
-max(covid_mexico$date)
+min(covid_mexico$date) # 01 enero 2020
+max(covid_mexico$date) # 02 agosto 2023
 ```
 
+Supongamos que solo necesitamos información 2021. Para esto necesitamos filtrar la variable *date*, mediante la función *filter()* de la paquetería *dplyr*. En este filtro es necesario colocar dos condiciones, una para el intervalo menor y la segunda para el intervalo mayor.
 
 ```{r filtrando2, echo=TRUE, warning=FALSE, message=FALSE}
 covid_mexico %>%
   filter(date >= '2021-01-01',
          date <= '2021-12-31')
 ```
+
+La ventaja de trabajar con *dplyr* es el desarrollo de flujos de trabajo que permiten graficar la información de manera directa. En este apartado graficaremos los datos de total de casos en 2021. Utilizando una escala de 1 mes para el eje de las equis.
 
 ```{r grafico6, echo=TRUE, message=FALSE, warning=FALSE}
 covid_mexico %>%
@@ -163,7 +166,7 @@ covid_mexico %>%
   ylab('Casos Totales')
 ```
 
-
+La evalución de variables con diferente escala suele ser un problema en estadística. No obstante, mediante la evaluación de la línea de tendencia es posible identificar la relación de estos procesos. Mediante la función *ggarrange()* de la paquetería *ggpubr* es posible pegar diferentes gráficos y comparar las líneas de tendencia. Antes de utilizar la función generaremos 3 gráficos, siendo esto el total de casos para COVID-19, el total de muertes y el total de pruebas de detección en 2021. A cada uno de estos gráficos se le asignará un nombre. 
 
 ```{r pegando, echo=TRUE, message=FALSE, warning=FALSE}
 a <- covid_mexico %>%
@@ -197,6 +200,7 @@ c <- covid_mexico %>%
 vjust = 0.5, hjust=1))
 ```
 
+A continuación, se utilizará la función *ggarrange()* para ordenar estos elementos.
 
 ```{r pegando2, echo=TRUE, message=FALSE, warning=FALSE}
 ggarrange(a, b, c,
@@ -206,6 +210,7 @@ ggarrange(a, b, c,
           hjust = 0, vjust = 2.2)
 ```
 
+De esta manera, se visualiza que las tres variables presentan una línea de tendencia similar durante el 2021.
 
 
 
