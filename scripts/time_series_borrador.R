@@ -33,6 +33,9 @@ data_vector <- c(10,6,11,8,10,3,6,9)
 serie_tiempo <- ts(data_vector)
 plot(serie_tiempo)
 
+difi <- ts(diferencia_casos)
+plot(difi)
+
 # agregando año de inicio y tiempo de evolucion
 serie_tiempo_2 <- ts(data_vector, start = 2001,
                      frequency = 1)
