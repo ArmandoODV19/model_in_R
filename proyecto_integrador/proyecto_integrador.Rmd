@@ -11,13 +11,18 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Preguntas Proyecto
 
-A partir del dataset *covid_mexico.RDS*, realiza o responde lo siguiente:
+A partir del dataset *covid_mexico.RDS*, realiza o responderas lo siguiente. Asimismo, compartirás el código utilizado para responder cada pregunta.
 
 
+1. Obten la media aritmética, la moda y la mediana de la variable *total_cases*.
 
+2. Obten la varianza y desviación estándar de la variable *new_tests*.
 
+3. Genera los 3 cuartiles de la variable *total_tests*
 
+4. ¿En qué cuartil se encontraría el valor 9,458,964 para la variable *total_tests*
 
+5. ¿Cuándo finalizó la captura de la información del dataset *covid_mexico*?
 
 
 **Nota: debes de llamar el datatset al ambiente de trabajo y utilizar las librerías vistas en clase**
