@@ -11,7 +11,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Preguntas Proyecto
 
-A partir del dataset *covid_mexico.RDS*, realiza o responderas lo siguiente. Asimismo, compartirás el código utilizado para responder cada pregunta.
+A partir del dataset *covid_mexico.RDS*, realiza o responderas lo siguiente. Asimismo, compartirás el código utilizado para responder cada pregunta. Antes de iniciar corre la siguiente semilla aleatoria *set.seed(456)*.
 
 
 1. Obten la media aritmética, la moda y la mediana de la variable *total_cases*.
@@ -26,7 +26,15 @@ A partir del dataset *covid_mexico.RDS*, realiza o responderas lo siguiente. Asi
 
 6. ¿Qué medida de tendencia central utilizarias para recodificar los valores faltantes de la variable *total_tests*?
 
-7. Realiza una recodificación de los valores faltantes con la medida de tendencia central elegida en la preunta previa. 
+7. Realiza una recodificación de los valores faltantes en la variable *total_test* con la medida de tendencia central elegida en la pregunta previa. A continuación toma tres muestreos sin reemplazo del dataset *covid_mexico*. El primero con una *n* de 50, el segundo con 200 muestras y el tercero con 500. Posteriormente obten las tres medidas de tendencia central de cada uno de los datasets y comparalas con el conjunto de datos original. A partir de este proceso, ¿que conjunto de datos se asemeja al original?
+
+8. Realiza la limpieza y transformación de los datos que creas conveniente para las variables *total_cases* y *total_deaths*. Genera un modelo de regresión y explica la relación entre estas variables. Asimismo, agrega los estadísticos necesarios que avalen tu modelo.
+
+9. Grafica el modelo previo utilizando la función *ggplot()*. Asimismo, agrega los cambios estéticos que permitan entender el gráfico.
+
+10. ¿Qué variables del dataset *covid_mexico*, presentan mayor influencia sobre la variable *total_tests*? (Realiza el modelo que creas pertinente).
+
+11. Identifica las fechas en las cuales se presentaron aumento en los casos de COVID-19 durante la pandemia.
 
 
 **Nota: debes de llamar el datatset al ambiente de trabajo y utilizar las librerías vistas en clase**
