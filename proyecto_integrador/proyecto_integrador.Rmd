@@ -24,5 +24,9 @@ A partir del dataset *covid_mexico.RDS*, realiza o responderas lo siguiente. Asi
 
 5. ¿Cuándo finalizó la captura de la información del dataset *covid_mexico*?
 
+6. ¿Qué medida de tendencia central utilizarias para recodificar los valores faltantes de la variable *total_tests*?
+
+7. Realiza una recodificación de los valores faltantes con la medida de tendencia central elegida en la preunta previa. 
+
 
 **Nota: debes de llamar el datatset al ambiente de trabajo y utilizar las librerías vistas en clase**
