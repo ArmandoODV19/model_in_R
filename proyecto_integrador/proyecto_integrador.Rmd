@@ -24,7 +24,7 @@ A partir del dataset *covid_mexico.RDS*, realiza o responderas lo siguiente. Asi
 
 5. ¿Cuándo finalizó la captura de la información del dataset *covid_mexico*?
 
-6. ¿Qué medida de tendencia central utilizarias para recodificar los valores faltantes de la variable *total_tests*?
+6. ¿Qué medida de tendencia central utilizarias para recodificar los valores faltantes de la variable *total_tests*? Explica y comparte el flujo de trabajo realizado para explicar tu respuesta.
 
 7. Realiza una recodificación de los valores faltantes en la variable *total_test* con la medida de tendencia central elegida en la pregunta previa. A continuación toma tres muestreos sin reemplazo del dataset *covid_mexico*. El primero con una *n* de 50, el segundo con 200 muestras y el tercero con 500. Posteriormente obten las tres medidas de tendencia central de cada uno de los datasets y comparalas con el conjunto de datos original. A partir de este proceso, ¿que conjunto de datos se asemeja al original?
 
