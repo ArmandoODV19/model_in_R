@@ -24,6 +24,9 @@ quantile(total_tests, na.rm = TRUE)
 
 # 4.
 
+# debajo del primer cuartil
+
+# 5
 
 
 
