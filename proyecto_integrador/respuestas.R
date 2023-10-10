@@ -4,6 +4,7 @@
 library(dplyr)
 library(ggplot2)
 library(modeest)
+library(moments)
 
 set.seed(456)
 attach(covid_mexico)
@@ -30,6 +31,15 @@ quantile(total_tests, na.rm = TRUE)
 
 max(covid_mexico$date) # 2 de agosto 2023
 
+
+# 6.
+
+ggplot(covid_mexico, aes(total_tests)) +
+  geom_histogram()
+
+skewness(total_tests, na.rm = TRUE)
+
+# mediana
 
 
 
