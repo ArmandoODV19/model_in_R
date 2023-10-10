@@ -92,8 +92,20 @@ ggplot(covid_recode, aes(x = total_cases, total_deaths)) +
   ylab('Muertes Totales') +
   theme_bw()
 
+# 10.
+
+covid_final <- covid_recode %>%
+  select(-iso_code, -continent, -location, -date,
+         -tests_units)
+
+# recode con 0
+
+covid_final[is.na(covid_final)] = 0
 
 
+covid_multi <- lm(total_tests~., data = covid_final)
+summary(covid_multi)
+confint(covid_multi)
 
 
 
