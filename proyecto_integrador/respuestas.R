@@ -41,6 +41,28 @@ skewness(total_tests, na.rm = TRUE)
 
 # mediana
 
+# 7.
+
+covid_recode <- covid_mexico
+median(covid_recode$total_tests, na.rm = TRUE) # recode con 5759946
+summary(covid_recode$total_tests) # 410 NA
+covid_recode$total_tests[is.na(covid_recode$total_tests)] = 5759946
+summary(covid_recode$total_tests) # 0 Na
+
+covid_recode_50 <- slice_sample(covid_recode, n = 50)
+covid_recode_200 <- slice_sample(covid_recode, n = 200)
+covid_recode_500 <- slice_sample(covid_recode, n = 500)
+
+mean(covid_recode$total_tests);median(covid_recode$total_tests);mfv(covid_recode$total_tests)
+# 6176155; 5759946; 5759946
+mean(covid_recode_50$total_tests);median(covid_recode_50$total_tests);mfv(covid_recode_50$total_tests)
+# 6399293; 5759946; 5759946
+mean(covid_recode_200$total_tests);median(covid_recode_200$total_tests);mfv(covid_recode_200$total_tests)
+# 6333803; 5759946; 5759946
+mean(covid_recode_500$total_tests);median(covid_recode_500$total_tests);mfv(covid_recode_500$total_tests)
+# 6315729; 5759946; 5759946
+
+
 
 
 
