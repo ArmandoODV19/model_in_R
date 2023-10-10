@@ -20,6 +20,12 @@ sd(new_tests, na.rm = TRUE)
 
 # 3.
 
+quantile(total_tests, na.rm = TRUE)
+
+# 4.
+
+
+
 
 
 
