@@ -82,3 +82,18 @@ cases_vs_deaths <-  lm(formula=total_deaths~total_cases,
 summary(cases_vs_deaths)
 cases_vs_deaths$coefficients
 confint(cases_vs_deaths)
+
+# 9.
+
+ggplot(covid_recode, aes(x = total_cases, total_deaths)) +
+  geom_point(color = 'forestgreen')+
+  geom_smooth(method = 'glm', color = 'salmon') +
+  xlab('Casos Totales')+
+  ylab('Muertes Totales') +
+  theme_bw()
+
+
+
+
+
+
