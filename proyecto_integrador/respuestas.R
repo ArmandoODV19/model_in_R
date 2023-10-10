@@ -26,7 +26,9 @@ quantile(total_tests, na.rm = TRUE)
 
 # debajo del primer cuartil
 
-# 5
+# 5.
+
+max(covid_mexico$date) # 2 de agosto 2023
 
 
 
