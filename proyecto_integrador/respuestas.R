@@ -62,13 +62,23 @@ mean(covid_recode_200$total_tests);median(covid_recode_200$total_tests);mfv(covi
 mean(covid_recode_500$total_tests);median(covid_recode_500$total_tests);mfv(covid_recode_500$total_tests)
 # 6315729; 5759946; 5759946
 
+# 8. total_cases total_deaths
+mean(covid_recode$total_cases, na.rm = T);median(covid_recode$total_cases, na.rm = T)
+ggplot(covid_recode, aes(total_cases))+
+  geom_histogram()
+mean(covid_recode$total_deaths, na.rm = T);median(covid_recode$total_deaths, na.rm = T)
+ggplot(covid_recode, aes(total_deaths))+
+  geom_histogram()
 
 
+covid_recode$total_cases[is.na(covid_recode$total_cases)]=3882764
+covid_recode$total_deaths[is.na(covid_recode$total_deaths)]=299378
 
+skewness(covid_recode$total_cases)
+skewness(covid_recode$total_deaths)
 
-
-
-
-
-
-
+cases_vs_deaths <-  lm(formula=total_deaths~total_cases,
+                       data = covid_recode)
+summary(cases_vs_deaths)
+cases_vs_deaths$coefficients
+confint(cases_vs_deaths)
