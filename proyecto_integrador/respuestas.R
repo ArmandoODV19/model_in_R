@@ -12,3 +12,20 @@ attach(covid_mexico)
 mean(total_cases, na.rm = TRUE)
 median(total_cases, na.rm = TRUE)
 mfv(total_cases, na_rm = TRUE)
+
+# 2.
+
+var(new_tests, na.rm = TRUE)
+sd(new_tests, na.rm = TRUE)
+
+# 3.
+
+
+
+
+
+
+
+
+
+
